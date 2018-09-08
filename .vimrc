@@ -2,14 +2,14 @@
 source /Users/weiyang/.vim_runtime/vimrc
 """ end
 
-" 
+"
 " Basic
-" 
- 
+"
+
 set number
 set mouse=a
 set exrc
-set undodir=~/.vim/undo-dir
+set undodir=~/.cache/undo-dir
 set undofile
 set ignorecase
 set smartcase
@@ -17,6 +17,7 @@ set autoread
 
 let mapleader = "\<space>"
 let g:mapleader = "\<space>"
+imap fd <Esc>
 
 " FileTypes
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -25,10 +26,10 @@ autocmd FileType sh setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType proto setlocal ts=4 sts=4 sw=4 expandtab
 
 " Highlight
-set colorcolumn=80,100 
+set colorcolumn=80,100
 set cursorline
 set cursorcolumn
-au BufWinEnter * if &filetype == '' | setlocal nocursorline nocursorcolumn colorcolumn= | endif 
+au BufWinEnter * if &filetype == '' | setlocal nocursorline nocursorcolumn colorcolumn= | endif
 
 " Smart way to move between windows
 nnoremap <C-j> <C-W>j
@@ -47,12 +48,12 @@ map <left> <nop>
 map <right> <nop>
 
 
-" 
+"
 " Plugin
-" 
+"
 
 " Plug
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.cache/plugged')
 
 " Vim plugin that allows you to visually select increasingly larger regions of text using the same key combination.
 Plug 'terryma/vim-expand-region'
@@ -77,7 +78,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 
 " A Vim plugin that manages your tag files
-" Plug 'ludovicchabant/vim-gutentags'
+Plug 'ludovicchabant/vim-gutentags'
 
 " A code-completion engine for Vim
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --go-completer' }
@@ -97,7 +98,7 @@ Plug 'fatih/vim-go'
 " If installed using Homebrew
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
- 
+
 " Vim plugin, insert or delete brackets, parens, quotes in pair
 Plug 'jiangmiao/auto-pairs'
 
@@ -176,11 +177,11 @@ vmap <C-v> <Plug>(expand_region_shrink)
 call neomake#configure#automake('w')
 let g:neomake_open_list = 1
 let g:neomake_go_golint_maker = {
-	\ 'exe': 'revive',
-	\ 'errorformat':
+  \ 'exe': 'revive',
+  \ 'errorformat':
             \ '%I%f:%l:%c: %m,' .
             \ '%-G%.%#'
-	\ }
+  \ }
 let g:neomake_go_enabled_makers = ['go', 'golint', 'govet']
 let g:neomake_python_yapf_maker = {'exe': 'yapf', 'args': ['--in-place']}
 let g:neomake_python_isort_maker = {'exe': 'isort'}
@@ -231,3 +232,5 @@ function! VimComplete( findstart, base ) abort
   endif
  endfunction
 
+ " vim-gutentags
+ let g:gutentags_cache_dir = '~/.cache/tags'
