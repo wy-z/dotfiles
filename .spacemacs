@@ -29,16 +29,13 @@ This function should only modify configuration layer settings."
    ;; If non-nil layers with lazy install support are lazy installed.
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '()
+   dotspacemacs-configuration-layer-path '("~/.spacemacs-priv")
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(vimscript
      javascript
-     (go :variables
-         go-backend 'ycmd
-         godoc-at-point-function 'godoc-gogetdoc
-         go-use-golangci-lint t)
+     go
      xclipboard
      ycmd
      python
@@ -505,7 +502,6 @@ before packages are loaded."
   (setq-default
    go-format-before-save t
    gofmt-command "goimports")
-  (add-hook 'go-mode-hook 'ycmd-mode)
 
   ;; ycmd
   (setq-default ycmd-server-command '("python3" "/Users/weiyang/.ycmd/ycmd"))
