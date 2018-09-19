@@ -151,9 +151,9 @@ map ? <Plug>(incsearch-backward)
 
 " fzf
 let g:fzf_buffers_jump = 1
-nmap <leader>j :Files<cr>
-nmap <leader>k :BTags<cr>
-nmap <leader>/ :BLines<cr>
+nmap <leader>pf :Files<cr>
+nmap <leader>ji :BTags<cr>
+nmap <leader>ss :BLines<cr>
 
 " ripgrep
 if executable("rg")

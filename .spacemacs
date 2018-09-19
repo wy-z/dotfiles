@@ -58,7 +58,9 @@ This function should only modify configuration layer settings."
             shell-default-position 'bottom)
      spell-checking
      syntax-checking
-     version-control
+     (version-control :variables
+                      version-control-diff-side 'left
+                      version-control-global-margin t)
      )
 
    ;; List of additional packages that will be installed without being
@@ -242,7 +244,7 @@ It should only modify the values of Spacemacs settings."
    ;; and TAB or `C-m' and `RET'.
    ;; In the terminal, these pairs are generally indistinguishable, so this only
    ;; works in the GUI. (default nil)
-   dotspacemacs-distinguish-gui-tab nil
+   dotspacemacs-distinguish-gui-tab t
 
    ;; Name of the default layout (default "Default")
    dotspacemacs-default-layout-name "Default"
@@ -429,10 +431,7 @@ It should only modify the values of Spacemacs settings."
    ;; Run `spacemacs/prettify-org-buffer' when
    ;; visiting README.org files of Spacemacs.
    ;; (default nil)
-   dotspacemacs-pretty-docs nil
-
-   ;; Else
-   dotspacemacs-mode-line-unicode-symbols 'display-graphic-p))
+   dotspacemacs-pretty-docs nil))
 
 (defun dotspacemacs/user-env ()
   "Environment variables setup.
@@ -456,10 +455,13 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
       ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
   ;; emacs
+  (add-to-list 'default-frame-alist '(fullscreen . fullboth))
   (add-to-list 'default-frame-alist
                '(ns-transparent-titlebar . t))
   (add-to-list 'default-frame-alist
                '(ns-appearance . dark))
+  (setq-default
+   vc-follow-symlinks t)
   )
 
 (defun dotspacemacs/user-load ()
@@ -477,8 +479,8 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
   ;; spacemacs
-  (fset 'evil-visual-update-x-selection 'ignore)
   (setq-default
+   x-select-enable-clipboard nil
    fill-column 100
    projectile-enable-caching t
    evil-escape-key-sequence "fd"
@@ -488,11 +490,15 @@ before packages are loaded."
                   "*node_modules/"
                   "*.tox"
                   ))
-  (setq undo-tree-auto-save-history t
+  (add-hook 'prog-mode-hook 'turn-on-fci-mode)
+  (add-hook 'text-mode-hook 'turn-on-fci-mode)
+  (add-hook 'org-mode-hook 'turn-off-fci-mode 'append)
+  (setq-default undo-tree-auto-save-history t
         undo-tree-history-directory-alist
         `(("." . ,(concat spacemacs-cache-directory "undo"))))
   (unless (file-exists-p (concat spacemacs-cache-directory "undo"))
     (make-directory (concat spacemacs-cache-directory "undo")))
+  (add-to-list 'spacemacs-large-file-modes-list 'tags-table-mode)
 
   ;; flycheck
   (setq-default
@@ -500,6 +506,7 @@ before packages are loaded."
 
   ;; go
   (setq-default
+   flycheck-golangci-lint-fast t
    go-format-before-save t
    gofmt-command "goimports")
 
@@ -521,7 +528,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (flyspell-correct-helm flyspell-correct company multiple-cursors avy magit git-commit ghub graphql yasnippet evil org-plus-contrib yasnippet-snippets yapfify yaml-mode xterm-color ws-butler with-editor winum which-key web-beautify volatile-highlights vimrc-mode vi-tilde-fringe uuidgen use-package unfill undo-tree treepy toc-org symon string-inflection spaceline-all-the-icons smeargle shell-pop restart-emacs rainbow-delimiters pyvenv pytest pyenv-mode py-isort prettier-js popwin pippel pipenv pip-requirements persp-mode pcre2el password-generator paradox overseer orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets org-brain open-junk-file neotree nameless mwim multi-term move-text mmm-mode markdown-toc magit-svn magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode link-hint json-navigator json-mode js2-refactor js-doc jinja2-mode insert-shebang indent-guide importmagic hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-gitignore helm-git-grep helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag goto-chg google-translate golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy font-lock+ flycheck-ycmd flycheck-pos-tip flycheck-golangci-lint flycheck-bashate flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline diminish diff-hl define-word dactyl-mode cython-mode counsel-projectile company-ycmd company-tern company-statistics company-shell company-ansible company-anaconda column-enforce-mode clean-aindent-mode centered-cursor-mode browse-at-remote auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile ansible-doc ansible aggressive-indent ace-window ace-link ace-jump-helm-line ac-ispell))))
+    (define-word yasnippet-snippets yapfify yaml-mode xterm-color ws-butler winum which-key web-beautify volatile-highlights vimrc-mode vi-tilde-fringe uuidgen use-package unfill toc-org symon string-inflection spaceline-all-the-icons smeargle shell-pop reveal-in-osx-finder restart-emacs rainbow-delimiters pyvenv pytest pyenv-mode py-isort prettier-js popwin pippel pipenv pip-requirements persp-mode pcre2el password-generator paradox overseer osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets org-brain open-junk-file neotree nameless mwim multi-term move-text mmm-mode markdown-toc magit-svn magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode link-hint launchctl json-navigator json-mode js2-refactor js-doc jinja2-mode insert-shebang indent-guide importmagic hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-gitignore helm-git-grep helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy font-lock+ flyspell-correct-helm flycheck-ycmd flycheck-pos-tip flycheck-golangci-lint flycheck-bashate flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline diminish diff-hl dactyl-mode cython-mode counsel-projectile company-ycmd company-tern company-statistics company-shell company-ansible company-anaconda column-enforce-mode clean-aindent-mode centered-cursor-mode browse-at-remote auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile ansible-doc ansible aggressive-indent ace-window ace-link ace-jump-helm-line ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
