@@ -480,7 +480,6 @@ before packages are loaded."
 
   ;; spacemacs
   (setq-default
-   x-select-enable-clipboard nil
    fill-column 100
    projectile-enable-caching t
    evil-escape-key-sequence "fd"
@@ -500,13 +499,23 @@ before packages are loaded."
     (make-directory (concat spacemacs-cache-directory "undo")))
   (add-to-list 'spacemacs-large-file-modes-list 'tags-table-mode)
 
+  ;; clipboard
+  (setq-default x-select-enable-clipboard nil)
+  (define-key evil-normal-state-map (kbd "s-c") 'spacemacs/xclipboard-copy)
+  (define-key evil-visual-state-map (kbd "s-c") 'spacemacs/xclipboard-copy)
+  (define-key evil-insert-state-map (kbd "s-v") 'spacemacs/xclipboard-paste)
+  (define-key evil-ex-completion-map (kbd "s-v") 'spacemacs/xclipboard-paste)
+  (define-key evil-ex-search-keymap (kbd "s-v") 'spacemacs/xclipboard-paste)
+  (global-set-key (kbd "s-c") 'spacemacs/xclipboard-copy)
+  (global-set-key (kbd "s-v") 'spacemacs/xclipboard-paste)
+
   ;; flycheck
   (setq-default
+   flycheck-highlighting-mode 'lines
    flycheck-check-syntax-automatically '(save))
 
   ;; go
   (setq-default
-   flycheck-golangci-lint-fast t
    go-format-before-save t
    gofmt-command "goimports")
 
