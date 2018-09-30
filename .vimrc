@@ -81,7 +81,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'ludovicchabant/vim-gutentags'
 
 " A code-completion engine for Vim
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --go-completer' }
+Plug 'Valloric/YouCompleteMe'
 
 " The missing motion for Vim
 Plug 'justinmk/vim-sneak'
@@ -91,9 +91,6 @@ Plug 'christoomey/vim-system-copy'
 
 " An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
 Plug 'dyng/ctrlsf.vim'
-
-" Go development plugin for Vim
-Plug 'fatih/vim-go'
 
 " If installed using Homebrew
 Plug '/usr/local/opt/fzf'
@@ -105,20 +102,11 @@ Plug 'jiangmiao/auto-pairs'
 " A vim plugin to display the indention levels with thin vertical lines
 Plug 'yggdroot/indentline'
 
-" Vim configuration for Rust
-Plug 'rust-lang/rust.vim'
-
 " Make Vim persist editing state without fuss
 Plug 'zhimsel/vim-stay'
 
 " Range, pattern and substitute preview for Vim
 Plug 'markonm/traces.vim'
-
-" True Sublime Text style multiple selections for Vim
-Plug 'terryma/vim-multiple-cursors'
-
-" The vim source for neocomplete/deoplete
-Plug 'Shougo/neco-vim'
 
 " Initialize plugin system
 call plug#end()
@@ -128,18 +116,6 @@ call plug#end()
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
-
-" Vim-Go
-let g:go_fmt_command = "goimports"
-let g:go_auto_type_info = 0
-let g:go_def_mapping_enabled = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_list_type = "quickfix"
 
 " Vim-Gitgutter
 set updatetime=250
@@ -176,18 +152,6 @@ vmap <C-v> <Plug>(expand_region_shrink)
 " neomake
 call neomake#configure#automake('w')
 let g:neomake_open_list = 1
-let g:neomake_go_golint_maker = {
-  \ 'exe': 'revive',
-  \ 'errorformat':
-            \ '%I%f:%l:%c: %m,' .
-            \ '%-G%.%#'
-  \ }
-let g:neomake_go_enabled_makers = ['go', 'golint', 'govet']
-let g:neomake_python_yapf_maker = {'exe': 'yapf', 'args': ['--in-place']}
-let g:neomake_python_isort_maker = {'exe': 'isort'}
-let g:neomake_python_enabled_makers=['yapf', 'isort', 'flake8', 'mypy']
-let g:neomake_sh_shfmt_maker = {'exe': 'shfmt', 'args': ['-w', '-i', '4', '-s']}
-let g:neomake_sh_enabled_makers=['sh', 'shellcheck']
 augroup neomake_hooks
   au!
   autocmd User NeomakeJobFinished :checktime
