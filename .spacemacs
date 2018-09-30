@@ -29,7 +29,7 @@ This function should only modify configuration layer settings."
    ;; If non-nil layers with lazy install support are lazy installed.
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '("~/.spacemacs-priv")
+   dotspacemacs-configuration-layer-path '("~/.spacemacs-pers")
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
@@ -40,7 +40,7 @@ This function should only modify configuration layer settings."
      python
      shell-scripts
      ansible
-     priv-defaults
+     pers-defaults
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
