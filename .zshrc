@@ -25,7 +25,7 @@ AUTO_LS_PATH=false
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # source alias
-alias_file="~/.zshrc_alias"
+alias_file=~/.zshrc_alias
 if [[ -f ${alias_file} ]]; then
     source ${alias_file}
 fi
