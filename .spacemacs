@@ -32,44 +32,8 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layer-path '("~/.spacemacs-pers")
 
    ;; List of configuration layers to load.
-   dotspacemacs-configuration-layers
-   '(vimscript
-     javascript
-     (c-c++ :variables
-            c-c++-enable-auto-newline t
-            c-c++-enable-clang-format-on-save t
-            c-c++-enable-clang-support t)
-     go
-     ycmd
-     lsp
-     (python :variables
-             python-sort-imports-on-save t
-             python-backend 'lsp)
-     shell-scripts
-     ansible
-     pers-defaults
-     docker
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
-     ;; `M-m f e R' (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
-     helm
-     auto-completion
-     better-defaults
-     emacs-lisp
-     git
-     markdown
-     org
-     (shell :variables
-            shell-default-height 60
-            shell-default-position 'bottom)
-     spell-checking
-     syntax-checking
-     (version-control :variables
-                      version-control-diff-side 'left
-                      version-control-global-margin t)
-     )
+   dotspacemacs-configuration-layers'(emacs-lisp
+                                      personal)
 
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -476,30 +440,6 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-
-  ;; spacemacs
-  (setq-default
-   projectile-enable-caching t
-   evil-escape-key-sequence "fd"
-   evil-escape-delay 0.2
-   projectile-globally-ignored-directories '(
-                  "*vendor/"
-                  "*node_modules/"
-                  "*.tox"
-                  ))
-
-  ;; flycheck
-  (setq-default
-   flycheck-highlighting-mode 'lines
-   flycheck-check-syntax-automatically '(save))
-
-  ;; go
-  (setq-default
-   go-format-before-save t
-   gofmt-command "goimports")
-
-  ;; ycmd
-  (setq-default ycmd-server-command '("python3" "/Users/weiyang/.ycmd/ycmd"))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -516,7 +456,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (lsp-ui lsp-python lsp-javascript-typescript typescript-mode company-lsp lsp-mode yasnippet-snippets yapfify yaml-mode xterm-color ws-butler winum which-key web-beautify volatile-highlights vimrc-mode vi-tilde-fringe uuidgen use-package unfill toc-org symon string-inflection spaceline-all-the-icons smeargle shell-pop restart-emacs rainbow-delimiters pyvenv pytest pyenv-mode py-isort prettier-js popwin pippel pipenv pip-requirements persp-mode pcre2el password-generator paradox overseer orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets org-brain open-junk-file neotree nameless mwim multi-term move-text mmm-mode markdown-toc magit-svn magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode link-hint json-navigator js2-refactor js-doc jinja2-mode insert-shebang indent-guide importmagic hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-gitignore helm-git-grep helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate google-c-style golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy font-lock+ flyspell-correct-helm flycheck-ycmd flycheck-rtags flycheck-pos-tip flycheck-golangci-lint flycheck-bashate flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline dockerfile-mode docker disaster diminish diff-hl define-word dactyl-mode cython-mode counsel-projectile company-ycmd company-tern company-statistics company-shell company-rtags company-c-headers company-ansible company-anaconda column-enforce-mode clean-aindent-mode clang-format centered-cursor-mode browse-at-remote auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile ansible-doc ansible aggressive-indent ace-window ace-link ace-jump-helm-line ac-ispell))))
+    (yasnippet-snippets yapfify yaml-mode xterm-color web-beautify vimrc-mode unfill smeargle shell-pop pyvenv pytest pyenv-mode py-isort prettier-js pippel pipenv pip-requirements orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download org-brain mwim multi-term mmm-mode markdown-toc magit-svn magit-gitflow lsp-ui markdown-mode lsp-python lsp-javascript-typescript typescript-mode livid-mode skewer-mode simple-httpd live-py-mode json-navigator hierarchy js2-refactor multiple-cursors js2-mode js-doc jinja2-mode insert-shebang importmagic epc ctable concurrent htmlize helm-rtags helm-pydoc helm-gitignore helm-git-grep helm-company helm-c-yasnippet google-c-style godoctor go-tag go-rename go-impl go-guru go-mode go-gen-test go-fill-struct gnuplot gitignore-templates gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md fuzzy flyspell-correct-helm flyspell-correct flycheck-ycmd flycheck-rtags flycheck-pos-tip pos-tip flycheck-golangci-lint flycheck-bashate flycheck fish-mode evil-org evil-magit magit git-commit ghub treepy graphql with-editor eshell-z eshell-prompt-extras esh-help dockerfile-mode docker json-mode tablist magit-popup docker-tramp json-snatcher json-reformat disaster diff-hl dactyl-mode cython-mode company-ycmd ycmd request-deferred deferred company-tern dash-functional tern company-statistics company-shell company-rtags rtags company-lsp lsp-mode company-c-headers company-ansible company-anaconda company clang-format browse-at-remote auto-yasnippet yasnippet auto-dictionary ansible-doc ansible anaconda-mode pythonic ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org symon string-inflection spaceline-all-the-icons restart-emacs request rainbow-delimiters popwin persp-mode pcre2el password-generator paradox overseer org-plus-contrib org-bullets open-junk-file neotree nameless move-text macrostep lorem-ipsum link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio font-lock+ flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline diminish define-word counsel-projectile column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile aggressive-indent ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
