@@ -2,7 +2,7 @@
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
-(defun dotspacemacs/layers ()
+(defun dotspacemacs/layers () 
   "Layer configuration:
 This function should only modify configuration layer settings."
   (setq-default
@@ -32,8 +32,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layer-path '("~/.spacemacs-pers")
 
    ;; List of configuration layers to load.
-   dotspacemacs-configuration-layers'(emacs-lisp
-                                      personal)
+   dotspacemacs-configuration-layers'(emacs-lisp personal)
 
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -59,7 +58,7 @@ This function should only modify configuration layer settings."
    ;; (default is `used-only')
    dotspacemacs-install-packages 'used-only))
 
-(defun dotspacemacs/init ()
+(defun dotspacemacs/init () 
   "Initialization:
 This function is called at the very beginning of Spacemacs startup,
 before layer configuration.
@@ -102,7 +101,9 @@ It should only modify the values of Spacemacs settings."
    ;; This is an advanced option and should not be changed unless you suspect
    ;; performance issues due to garbage collection operations.
    ;; (default '(100000000 0.1))
-   dotspacemacs-gc-cons '(100000000 0.1)
+   dotspacemacs-gc-cons 
+   '(100000000 
+     0.1)
 
    ;; If non-nil then Spacelpa repository is the primary source to install
    ;; a locked version of packages. If nil then Spacemacs will install the
@@ -149,7 +150,7 @@ It should only modify the values of Spacemacs settings."
    ;; `recents' `bookmarks' `projects' `agenda' `todos'.
    ;; List sizes may be nil, in which case
    ;; `spacemacs-buffer-startup-lists-length' takes effect.
-   dotspacemacs-startup-lists '((recents . 5)
+   dotspacemacs-startup-lists '((recents . 5) 
                                 (projects . 7))
 
    ;; True if the home buffer should respond to resize events. (default t)
@@ -165,8 +166,7 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
-                         spacemacs-light)
+   dotspacemacs-themes '(spacemacs-dark spacemacs-light)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
@@ -175,7 +175,8 @@ It should only modify the values of Spacemacs settings."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+   dotspacemacs-mode-line-theme '(spacemacs :separator wave 
+                                            :separator-scale 1.5)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -183,9 +184,8 @@ It should only modify the values of Spacemacs settings."
 
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 14
-                               :weight normal
+   dotspacemacs-default-font '("Source Code Pro" :size 14 
+                               :weight normal 
                                :width normal)
 
    ;; The leader key (default "SPC")
@@ -280,7 +280,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; If non-nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX. (default nil)
-   dotspacemacs-fullscreen-use-non-native t
+   dotspacemacs-fullscreen-use-non-native nil
 
    ;; If non-nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
@@ -405,7 +405,7 @@ It should only modify the values of Spacemacs settings."
    ;; (default nil)
    dotspacemacs-pretty-docs nil))
 
-(defun dotspacemacs/user-env ()
+(defun dotspacemacs/user-env () 
   "Environment variables setup.
 This function defines the environment variables for your Emacs session. By
 default it calls `spacemacs/load-spacemacs-env' which loads the environment
@@ -413,7 +413,7 @@ variables declared in `~/.spacemacs.env' or `~/.spacemacs.d/.spacemacs.env'.
 See the header of this file for more information."
   (spacemacs/load-spacemacs-env))
 
-(defun dotspacemacs/user-init ()
+(defun dotspacemacs/user-init () 
   "Initialization for user code:
 This function is called immediately after `dotspacemacs/init', before layer
 configuration.
@@ -421,46 +421,99 @@ It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
   ;; elpa
-  (setq-default configuration-layer-elpa-archives
-    '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-      ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
-      ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
-  )
+  (setq-default configuration-layer-elpa-archives '(("melpa-cn" .
+                                                     "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+                                                    ("org-cn"   .
+                                                     "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+                                                    ("gnu-cn"   .
+                                                     "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/"))))
 
-(defun dotspacemacs/user-load ()
+(defun dotspacemacs/user-load () 
   "Library to load while dumping.
 This function is called only while dumping Spacemacs configuration. You can
 `require' or `load' the libraries of your choice that will be included in the
-dump."
-  )
+dump.")
 
-(defun dotspacemacs/user-config ()
+(defun dotspacemacs/user-config () 
   "Configuration for user code:
 This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
-before packages are loaded."
-  )
+before packages are loaded.")
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
-(defun dotspacemacs/emacs-custom-settings ()
+(defun dotspacemacs/emacs-custom-settings () 
   "Emacs custom settings.
 This is an auto-generated function, do not modify its content directly, use
 Emacs customize menu instead.
 This function is called at the very end of Spacemacs initialization."
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (yasnippet-snippets yapfify yaml-mode xterm-color web-beautify vimrc-mode unfill smeargle shell-pop pyvenv pytest pyenv-mode py-isort prettier-js pippel pipenv pip-requirements orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download org-brain mwim multi-term mmm-mode markdown-toc magit-svn magit-gitflow lsp-ui markdown-mode lsp-python lsp-javascript-typescript typescript-mode livid-mode skewer-mode simple-httpd live-py-mode json-navigator hierarchy js2-refactor multiple-cursors js2-mode js-doc jinja2-mode insert-shebang importmagic epc ctable concurrent htmlize helm-rtags helm-pydoc helm-gitignore helm-git-grep helm-company helm-c-yasnippet google-c-style godoctor go-tag go-rename go-impl go-guru go-mode go-gen-test go-fill-struct gnuplot gitignore-templates gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md fuzzy flyspell-correct-helm flyspell-correct flycheck-ycmd flycheck-rtags flycheck-pos-tip pos-tip flycheck-golangci-lint flycheck-bashate flycheck fish-mode evil-org evil-magit magit git-commit ghub treepy graphql with-editor eshell-z eshell-prompt-extras esh-help dockerfile-mode docker json-mode tablist magit-popup docker-tramp json-snatcher json-reformat disaster diff-hl dactyl-mode cython-mode company-ycmd ycmd request-deferred deferred company-tern dash-functional tern company-statistics company-shell company-rtags rtags company-lsp lsp-mode company-c-headers company-ansible company-anaconda company clang-format browse-at-remote auto-yasnippet yasnippet auto-dictionary ansible-doc ansible anaconda-mode pythonic ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org symon string-inflection spaceline-all-the-icons restart-emacs request rainbow-delimiters popwin persp-mode pcre2el password-generator paradox overseer org-plus-contrib org-bullets open-junk-file neotree nameless move-text macrostep lorem-ipsum link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio font-lock+ flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline diminish define-word counsel-projectile column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile aggressive-indent ace-window ace-link ace-jump-helm-line))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-)
+  (custom-set-variables
+   ;; custom-set-variables was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(package-selected-packages (quote (elisp-format yasnippet-snippets yapfify yaml-mode xterm-color
+                                                    ws-butler winum which-key web-beautify
+                                                    volatile-highlights vimrc-mode vi-tilde-fringe
+                                                    uuidgen use-package unfill toc-org tide symon
+                                                    string-inflection spaceline-all-the-icons
+                                                    smeargle shell-pop restart-emacs
+                                                    rainbow-delimiters pyvenv pytest pyenv-mode
+                                                    py-isort prettier-js popwin pippel pipenv
+                                                    pip-requirements persp-mode pcre2el
+                                                    password-generator paradox overseer orgit
+                                                    org-projectile org-present org-pomodoro org-mime
+                                                    org-download org-bullets org-brain
+                                                    open-junk-file neotree nameless mwim multi-term
+                                                    move-text mmm-mode markdown-toc magit-svn
+                                                    magit-gitflow macrostep lsp-ui lsp-python
+                                                    lsp-javascript-typescript lsp-go lorem-ipsum
+                                                    livid-mode live-py-mode link-hint json-navigator
+                                                    js2-refactor js-doc jinja2-mode insert-shebang
+                                                    indent-guide importmagic hungry-delete htmlize
+                                                    hl-todo highlight-parentheses highlight-numbers
+                                                    highlight-indentation helm-xref helm-themes
+                                                    helm-swoop helm-rtags helm-pydoc helm-purpose
+                                                    helm-projectile helm-mode-manager helm-make
+                                                    helm-gitignore helm-git-grep helm-flx
+                                                    helm-descbinds helm-company helm-c-yasnippet
+                                                    helm-ag google-translate google-c-style
+                                                    golden-ratio godoctor go-tag go-rename go-impl
+                                                    go-guru go-gen-test go-fill-struct go-eldoc
+                                                    gnuplot gitignore-templates gitconfig-mode
+                                                    gitattributes-mode git-timemachine git-messenger
+                                                    git-link git-gutter-fringe git-gutter-fringe+
+                                                    gh-md fuzzy font-lock+ flyspell-correct-helm
+                                                    flycheck-rtags flycheck-pos-tip
+                                                    flycheck-golangci-lint flycheck-bashate flx-ido
+                                                    fish-mode fill-column-indicator fancy-battery
+                                                    eyebrowse expand-region evil-visualstar
+                                                    evil-visual-mark-mode evil-unimpaired evil-tutor
+                                                    evil-surround evil-org evil-numbers
+                                                    evil-nerd-commenter evil-mc evil-matchit
+                                                    evil-magit evil-lisp-state evil-lion
+                                                    evil-indent-plus evil-iedit-state evil-goggles
+                                                    evil-exchange evil-escape evil-ediff
+                                                    evil-cleverparens evil-args evil-anzu
+                                                    eval-sexp-fu eshell-z eshell-prompt-extras
+                                                    esh-help elisp-slime-nav editorconfig dumb-jump
+                                                    dotenv-mode doom-modeline dockerfile-mode docker
+                                                    disaster diminish diff-hl define-word
+                                                    dactyl-mode cython-mode counsel-projectile
+                                                    company-tern company-statistics company-shell
+                                                    company-rtags company-lsp company-go
+                                                    company-c-headers company-ansible
+                                                    company-anaconda column-enforce-mode
+                                                    clean-aindent-mode clang-format
+                                                    centered-cursor-mode browse-at-remote
+                                                    auto-yasnippet auto-highlight-symbol
+                                                    auto-dictionary auto-compile ansible-doc ansible
+                                                    aggressive-indent ace-window ace-link
+                                                    ace-jump-helm-line ac-ispell))))
+  (custom-set-faces
+   ;; custom-set-faces was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   ))
