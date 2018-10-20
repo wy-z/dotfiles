@@ -30,3 +30,5 @@ if [[ -f ${alias_file} ]]; then
     source ${alias_file}
 fi
 
+# direnv
+eval "$(direnv hook zsh)"
