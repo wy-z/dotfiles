@@ -5,6 +5,7 @@ source /usr/local/share/antigen/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle git
 antigen bundle autojump
+antigen bundle pipenv
 antigen theme robbyrussell
 # else
 antigen bundle zsh-users/zsh-syntax-highlighting
