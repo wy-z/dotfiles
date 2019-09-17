@@ -1,21 +1,32 @@
-# antigen
-source /usr/local/share/antigen/antigen.zsh
+# zplug
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
 # oh-my-zsh
-antigen use oh-my-zsh
-antigen bundle git
-antigen bundle autojump
-antigen bundle pipenv
-antigen theme robbyrussell
+zplug "robbyrussell/oh-my-zsh", use:"lib/*.zsh"
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/autojump", from:oh-my-zsh
+zplug "plugins/git", from:oh-my-zsh
+zplug "themes/robbyrussell", from:oh-my-zsh, as:theme
 # else
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle desyncr/auto-ls
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-history-substring-search"
+zplug "desyncr/auto-ls"
+zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
 
-antigen apply
-# antigen end
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load
+# zplug end
 
 # autols
 AUTO_LS_COMMANDS=(ls)
