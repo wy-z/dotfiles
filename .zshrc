@@ -4,10 +4,9 @@ source $ZPLUG_HOME/init.zsh
 
 # oh-my-zsh
 zplug "robbyrussell/oh-my-zsh", use:"lib/*.zsh"
+zplug "themes/robbyrussell", from:oh-my-zsh, as:theme
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/autojump", from:oh-my-zsh
-zplug "plugins/git", from:oh-my-zsh
-zplug "themes/robbyrussell", from:oh-my-zsh, as:theme
 # else
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"
