@@ -12,17 +12,11 @@ zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-history-substring-search"
-zplug "desyncr/auto-ls"
 zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
 
 # source plugins and add commands to $PATH
 zplug load
 # zplug end
-
-# autols
-AUTO_LS_COMMANDS=(ls)
-AUTO_LS_NEWLINE=false
-AUTO_LS_PATH=false
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
