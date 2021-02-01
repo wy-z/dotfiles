@@ -20,10 +20,12 @@ zplug load
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if command -v fd &>/dev/null; then
+    export FZF_DEFAULT_COMMAND='fd --type f'
+fi
 
 # source alias
 alias_file=~/.zshrc_alias
 if [[ -f ${alias_file} ]]; then
     source ${alias_file}
 fi
-
