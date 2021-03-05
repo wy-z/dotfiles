@@ -1,22 +1,40 @@
-# zplug
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
+export http_proxy=127.0.0.1:1081
+export https_proxy=127.0.0.1:1081
 
-# oh-my-zsh
-zplug "robbyrussell/oh-my-zsh", use:"lib/*.zsh"
-zplug "themes/robbyrussell", from:oh-my-zsh, as:theme
-zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/autojump", from:oh-my-zsh
-# else
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-history-substring-search"
-zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
 
-# source plugins and add commands to $PATH
-zplug load
-# zplug end
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zinit-zsh/z-a-rust \
+    zinit-zsh/z-a-as-monitor \
+    zinit-zsh/z-a-patch-dl \
+    zinit-zsh/z-a-bin-gem-node
+
+### End of Zinit's installer chunk
+
+zinit wait'!' lucid for \
+  src"lib" ohmyzsh/ohmyzsh \
+  OMZT::robbyrussell
+zinit wait lucid for \
+    OMZP::git \
+    OMZP::autojump \
+    zsh-users/zsh-syntax-highlighting \
+    zsh-users/zsh-autosuggestions \
+    zsh-users/zsh-completions \
+    zsh-users/zsh-history-substring-search \
+    MichaelAquilina/zsh-autoswitch-virtualenv
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
