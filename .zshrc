@@ -1,6 +1,3 @@
-export http_proxy=127.0.0.1:1081
-export https_proxy=127.0.0.1:1081
-
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
     print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
@@ -25,16 +22,17 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 zinit wait'!' lucid for \
-  src"lib" ohmyzsh/ohmyzsh \
-  OMZT::robbyrussell
+    dracula/zsh
 zinit wait lucid for \
-    OMZP::git \
     OMZP::autojump \
     zsh-users/zsh-syntax-highlighting \
     zsh-users/zsh-autosuggestions \
-    zsh-users/zsh-completions \
     zsh-users/zsh-history-substring-search \
-    MichaelAquilina/zsh-autoswitch-virtualenv
+    MichaelAquilina/zsh-autoswitch-virtualenv \
+    atload"zicompinit; zicdreplay" blockf zsh-users/zsh-completions
+
+# alias
+alias g=git
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
