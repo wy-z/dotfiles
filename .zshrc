@@ -22,17 +22,22 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 zinit wait'!' lucid for \
-    dracula/zsh
+    OMZL::git.zsh \
+    OMZL::theme-and-appearance.zsh \
+    OMZT::robbyrussell
 zinit wait lucid for \
+    OMZL::history.zsh \
     OMZP::autojump \
-    zsh-users/zsh-syntax-highlighting \
     zsh-users/zsh-autosuggestions \
     zsh-users/zsh-history-substring-search \
     MichaelAquilina/zsh-autoswitch-virtualenv \
+    atinit"zicompinit; zicdreplay"  \
+        zdharma/fast-syntax-highlighting \
     atload"zicompinit; zicdreplay" blockf zsh-users/zsh-completions
 
 # alias
 alias g=git
+alias ls="ls -G"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
