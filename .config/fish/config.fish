@@ -7,14 +7,8 @@ alias g=git
 # direnv
 direnv hook fish | source
 
-# prompt
-functions -c fish_prompt _old_fish_prompt
-function fish_prompt
-    if set -q VIRTUAL_ENV # python virtualenv
-        echo -n -s "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
-    end
-    _old_fish_prompt
-end
+# starship
+starship init fish | source
 
 # source fishrc
 set alias_file ~/.fishrc
