@@ -1,6 +1,9 @@
 # alias
 alias g=git
 
+# homebrew
+fish_add_path /opt/homebrew/bin
+
 # autojump
 [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
 
