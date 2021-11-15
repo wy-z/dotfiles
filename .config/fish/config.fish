@@ -2,16 +2,22 @@
 alias g=git
 
 # homebrew
-fish_add_path /opt/homebrew/bin
+if test -d /opt/homebrew
+    fish_add_path /opt/homebrew/bin
+end
 
 # autojump
-[ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
+[ -f /opt/homebrew/share/autojump/autojump.fish ]; and source /opt/homebrew/share/autojump/autojump.fish
 
 # direnv
-direnv hook fish | source
+if type -q direnv
+    direnv hook fish | source
+end
 
 # starship
-starship init fish | source
+if type -q starship
+    starship init fish | source
+end
 
 # source fishrc
 set alias_file ~/.fishrc
