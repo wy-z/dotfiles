@@ -1,8 +1,3 @@
-# # homebrew
-# HOMEBREW = p"/opt/homebrew"
-# if HOMEBREW.exists():
-# 	$PATH.append(f"{HOMEBREW}/bin")
-
 # XONSH WEBCONFIG START
 $PROMPT = '{BOLD_INTENSE_RED}➜ {CYAN}{cwd_base} {gitstatus}{RESET} '
 xontrib load autojump direnv ssh_agent vox
