@@ -5,9 +5,8 @@ if HOMEBREW.exists():
 
 # XONSH WEBCONFIG START
 $PROMPT = '{BOLD_INTENSE_RED}➜ {CYAN}{cwd_base} {gitstatus}{RESET} '
-xontrib load ssh_agent vox
+xontrib load ssh_agent vox jedi
 # XONSH WEBCONFIG END
-
 
 # starship
 execx($(starship init xonsh))
