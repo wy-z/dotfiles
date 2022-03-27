@@ -20,8 +20,17 @@ end
 set LANG en_US.UTF-8
 
 # proxy
-set proxy_host 127.0.0.1:1087
-set proxy_auth false
+set proxy_url http://127.0.0.1:1087
+set envars http_proxy HTTP_PROXY https_proxy HTTPS_PROXY ftp_proxy FTP_PROXY all_proxy ALL_PROXY
+function proxy -a op
+    for envar in $envars
+        if test "$op" = off
+            set -e $envar
+        else
+            set -xg $envar $proxy_url
+        end
+    end
+end
 
 # local bin
 set local_bin ~/.local/bin
