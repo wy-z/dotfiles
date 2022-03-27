@@ -1,13 +1,11 @@
-# alias
-alias g=git
-
 # homebrew
 if test -d /opt/homebrew
     fish_add_path /opt/homebrew/bin
 end
 
-# autojump
-[ -f /opt/homebrew/share/autojump/autojump.fish ]; and source /opt/homebrew/share/autojump/autojump.fish
+# zoxide
+zoxide init fish | source
+alias j=z
 
 # direnv
 if type -q direnv
@@ -24,3 +22,6 @@ set alias_file ~/.fishrc
 if test -e {$alias_file}
     source {$alias_file}
 end
+
+# misc
+alias g=git

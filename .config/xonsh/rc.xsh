@@ -17,3 +17,7 @@ aliases['j'] = "z"
 
 # misc
 aliases['g'] = "git"
+
+# fig
+if p"~/.fig/bin".exists():
+    $PATH.append("~/.fig/bin")
