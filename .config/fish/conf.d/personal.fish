@@ -16,7 +16,6 @@ if type -q remote
     alias r=remote
 end
 
-
 # basic
 set LANG en_US.UTF-8
 
@@ -25,15 +24,10 @@ set proxy_host 127.0.0.1:1087
 set proxy_auth false
 
 # local bin
-set -x PATH $PATH ~/.local/bin
-
-# ssh agent
-if status is-login
-  ssh-add
+set local_bin ~/.local/bin
+if test -d $local_bin
+    set -x PATH $PATH $local_bin
 end
-
-# gpg
-set -gx GPG_TTY (tty)
 
 # go
 if type -q go
@@ -42,7 +36,10 @@ if type -q go
 end
 
 # cargo
-set -x PATH $PATH ~/.cargo/bin
+set cargo_bin ~/.cargo/bin
+if test -d $cargo_bin
+    set -x PATH $PATH $cargo_bin
+end
 
 # jms
 alias jms="ssh -p 2222 jms.xsky.com"
@@ -51,4 +48,7 @@ alias jms="ssh -p 2222 jms.xsky.com"
 set -x VAULT_ADDR https://vault.xsky.com
 
 # Multipass
-set -x PATH $PATH "/Users/weiyang/Library/Application Support/multipass/bin"
+set multipass_bin "/Users/weiyang/Library/Application Support/multipass/bin"
+if test -d $multipass_bin
+    set -x PATH $PATH $multipass_bin
+end

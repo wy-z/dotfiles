@@ -17,11 +17,13 @@ if type -q starship
     starship init fish | source
 end
 
-# source fishrc
-set alias_file ~/.fishrc
-if test -e {$alias_file}
-    source {$alias_file}
+# ssh agent
+if status is-login
+    ssh-add
 end
+
+# gpg
+set -gx GPG_TTY (tty)
 
 # misc
 alias g=git
