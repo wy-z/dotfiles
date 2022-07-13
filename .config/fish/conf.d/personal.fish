@@ -4,7 +4,7 @@ if type -q trash
 end
 if type -q nvim
     alias v=nvim
-    alias vv="neovide"
+    alias vv="neovide --multigrid"
 end
 if type -q code
     alias c=code
