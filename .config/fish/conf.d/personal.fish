@@ -3,24 +3,18 @@ if type -q trash
     alias rm=trash
 end
 if type -q nvim
-    alias v=nvim
-    alias vv="neovide --multigrid"
+    alias v=lvim
+    alias vv=lvim-gui
 end
 if type -q code
     alias c=code
-end
-if type -q emacsclient
-    alias e="emacsclient -c -q -n -a nvim"
-end
-if type -q remote
-    alias r=remote
 end
 
 # basic
 set LANG en_US.UTF-8
 
 # proxy
-set proxy_url http://127.0.0.1:1087
+set proxy_url http://127.0.0.1:6152
 set envars http_proxy HTTP_PROXY https_proxy HTTPS_PROXY ftp_proxy FTP_PROXY all_proxy ALL_PROXY
 function proxy -a op
     for envar in $envars
@@ -56,8 +50,3 @@ alias jms="ssh -p 2222 jms.xsky.com"
 # Vault
 set -x VAULT_ADDR https://vault.xsky.com
 
-# Multipass
-set multipass_bin "/Users/weiyang/Library/Application Support/multipass/bin"
-if test -d $multipass_bin
-    set -x PATH $PATH $multipass_bin
-end
