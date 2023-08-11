@@ -35,17 +35,17 @@ fi
 if command -v go; then
     export PATH=$PATH:$(go env GOPATH)/bin
     export GOPROXY=https://goproxy.cn,direct
-end
+fi
 
 # rust
 if command -v cargo; then
-    . "$HOME/.cargo/env"
+    source "$HOME/.cargo/env"
     export PATH=$PATH:~/.cargo/bin
-end
+fi
 
 # personal zshrc
 if [ -f ~/.zshrc-pers ]; then
-	. ~/.zshrc-pers
+    source ~/.zshrc-pers
 fi
 
 # Fig post block. Keep at the bottom of this file.
