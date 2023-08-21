@@ -62,11 +62,16 @@ zinit light-mode for \
 # Two regular plugins loaded without investigating.
 zinit light-mode for \
     zsh-users/zsh-autosuggestions \
+    marlonrichert/zsh-autocomplete \
     zdharma-continuum/fast-syntax-highlighting
 
 # OMZ
 zinit snippet OMZP::git
+zinit snippet OMZP::ssh-agent
 zinit ice svn
 zinit snippet OMZP::shell-proxy
+
+# python venv
+zinit wait lucid for MichaelAquilina/zsh-autoswitch-virtualenv
 
 ### End of Zinit's installer chunk
