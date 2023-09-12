@@ -33,8 +33,8 @@ zinit wait lucid light-mode for \
     MichaelAquilina/zsh-autoswitch-virtualenv
 
 # OMZ
+zinit snippet OMZL::completion.zsh
 zinit snippet OMZL::key-bindings.zsh
-zinit snippet OMZP::git
 zinit snippet OMZP::ssh-agent
 zinit ice svn
 zinit snippet OMZP::shell-proxy
@@ -44,6 +44,7 @@ zinit snippet OMZP::shell-proxy
 # misc
 export CLICOLOR=1
 export LANG=en_US.UTF-8
+alias g=git
 
 # starship
 eval "$(starship init zsh)"
