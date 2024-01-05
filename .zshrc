@@ -11,6 +11,8 @@ export ZPLUG_HOME=/opt/homebrew/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 # oh-my-zsh
+zplug "lib/completion", from:oh-my-zsh
+zplug "lib/key-bindings", from:oh-my-zsh
 zplug "plugins/ssh-agent", from:oh-my-zsh
 zplug "plugins/shell-proxy", from:oh-my-zsh
 zplug "plugins/virtualenvwrapper", from:oh-my-zsh
@@ -31,6 +33,7 @@ zplug load
 #
 
 # misc
+export CLICOLOR=1
 export LANG=en_US.UTF-8
 alias g=git
 
