@@ -14,9 +14,15 @@
   # Each item in `inputs` will be passed as a parameter to the `outputs` function after being pulled and built.
   inputs = {
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.11-darwin";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
     darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
@@ -29,6 +35,7 @@
     self,
     nixpkgs,
     darwin,
+    home-manager,
     ...
   }: let
     hostname = "MacBookPro@Ones";
@@ -37,8 +44,6 @@
       nixpkgs.hostPlatform = platform;
       # enable flakes globally
       nix.settings.experimental-features = ["nix-command" "flakes"];
-      # fix untrusted substituter wraning
-      nix.settings.trusted-substituters = ["https://mirrors.ustc.edu.cn/nix-channels/store"];
       # enable /etc/zshrc config
       programs.zsh.enable = true;
 
@@ -51,8 +56,12 @@
     darwinConfigurations."${hostname}" = darwin.lib.darwinSystem {
       system = platform; # change this to "aarch64-darwin" if you are using Apple Silicon
       modules = [
+        home-manager.darwinModules.home-manager
         configuration
-        ./modules/app.nix
+
+        ./modules/host.nix
+        ./modules/pkg.nix
+        ./modules/home.nix
       ];
     };
   };
