@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -ex
+set -e
 
 HOMEBREW_BIN="/opt/homebrew/bin"
 export PATH=$PATH:$HOMEBREW_BIN:$HOME/.local/bin
@@ -65,7 +65,7 @@ update_brew_pkgs >"$BREW_LOG" 2>&1 &
 # Nvim
 #
 
-NVIM_LOG="$LOG_DIR/brew.log"
+NVIM_LOG="$LOG_DIR/nvim.log"
 update_nvim_pkgs() {
 	lvim +LvimUpdate +qall
 }
