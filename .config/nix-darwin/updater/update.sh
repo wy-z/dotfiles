@@ -72,6 +72,17 @@ update_nvim_pkgs() {
 }
 update_nvim_pkgs >"$NVIM_LOG" 2>&1 &
 
+#
+# Zsh
+#
+
+ZSH_LOG="$LOG_DIR/zsh.log"
+update_zsh_pkgs() {
+	http_proxy
+	zsh -c "source $HOME/.zshrc && zplug update"
+}
+update_zsh_pkgs >"$ZSH_LOG" 2>&1 &
+
 # wait
 wait $(jobs -p)
 echo "All packages updated"
