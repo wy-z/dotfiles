@@ -6,6 +6,7 @@ HOMEBREW_BIN="/opt/homebrew/bin"
 export PATH=$PATH:$HOMEBREW_BIN:$HOME/.local/bin
 
 THIS_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
+PARENT_DIR=$(dirname "${THIS_DIR}")
 LOG_DIR="$THIS_DIR/log"
 mkdir -p "${LOG_DIR}"
 
@@ -19,7 +20,7 @@ http_proxy() {
 # Pip
 #
 
-PIP_PKGS=$(cat "$THIS_DIR/pip.pkg")
+PIP_PKGS=$(cat "$PARENT_DIR/pip.pkg")
 PIP_LOG="$LOG_DIR/pip.log"
 PIP_MIRROR="https://pypi.tuna.tsinghua.edu.cn/simple"
 
@@ -37,7 +38,7 @@ update_pip_pkgs >"$PIP_LOG" 2>&1 &
 # Npm
 #
 
-NPM_PKGS=$(cat "$THIS_DIR/npm.pkg")
+NPM_PKGS=$(cat "$PARENT_DIR/npm.pkg")
 NPM_LOG="$LOG_DIR/npm.log"
 
 update_npm_pkgs() {
