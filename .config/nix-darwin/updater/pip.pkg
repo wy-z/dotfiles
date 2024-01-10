@@ -1,0 +1,6 @@
+ruff
+neovim-remote
+pipdeptree
+gdtoolkit
+virtualenvwrapper
+protobuf
