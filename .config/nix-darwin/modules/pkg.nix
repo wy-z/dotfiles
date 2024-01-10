@@ -1,29 +1,19 @@
 {pkgs, ...}: {
-  # Install packages from nix's official package repository.
-  environment.systemPackages = with pkgs; [
-    git
-    alejandra
-    husky
-  ];
-
   # The apps installed by homebrew are not managed by nix, and not reproducible!
   # But on macOS, homebrew has a much larger selection of apps than nixpkgs, especially for GUI apps!
   homebrew = {
     enable = true;
-
     onActivation = {
       autoUpdate = true;
       # 'zap': uninstalls all formulae(and related files) not listed here.
       cleanup = "zap";
     };
-
     taps = [
       "homebrew/bundle"
       "homebrew/cask-fonts"
       "homebrew/cask-versions"
       "homebrew/services"
     ];
-
     # `brew install`
     brews = [
       "ansible"
@@ -95,7 +85,6 @@
       "zoxide"
       "zplug"
     ];
-
     # `brew install --cask`
     casks = [
       "font-hack-nerd-font"
@@ -109,4 +98,16 @@
       "discord"
     ];
   };
+
+  # Install packages from nix's official package repository.
+  environment.systemPackages = with pkgs; [
+    # nix format
+    alejandra
+    # misc
+    husky
+    trash-cli
+
+    (callPackage ./ders/pip.nix {})
+    (callPackage ./ders/npm.nix {})
+  ];
 }
