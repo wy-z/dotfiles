@@ -106,8 +106,5 @@
     # misc
     husky
     trash-cli
-
-    (callPackage ./ders/pip.nix {})
-    (callPackage ./ders/npm.nix {})
   ];
 }
