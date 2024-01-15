@@ -35,6 +35,7 @@ zplug load
 # misc
 export CLICOLOR=1
 export LANG=en_US.UTF-8
+export EDITOR=nvim
 alias g=git
 
 
