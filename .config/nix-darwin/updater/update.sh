@@ -26,12 +26,12 @@ PIP_MIRROR="https://pypi.tuna.tsinghua.edu.cn/simple"
 
 update_pip_pkgs() {
 	export PIP_BREAK_SYSTEM_PACKAGES=1
-	pip install pipdeptree -i ${PIP_MIRROR}
+	pip3 install pipdeptree -i ${PIP_MIRROR}
 	# uninstall packages not in pip.pkg
 	pipdeptree --json-tree | jq ".[] | .package_name" |
-		xargs -I{} bash -c "echo 'pip wheel ${PIP_PKGS}' | grep -w -q {} || pipdeptree -p {} -fj | jq '.[] | .package.key' | xargs -I{} pip uninstall -y {}"
+		xargs -I{} bash -c "echo 'pip3 wheel ${PIP_PKGS}' | grep -w -q {} || pipdeptree -p {} -fj | jq '.[] | .package.key' | xargs -I{} pip3 uninstall -y {}"
 	# install/update packages
-	echo "${PIP_PKGS}" | xargs -I{} pip install {} -i ${PIP_MIRROR}
+	echo "${PIP_PKGS}" | xargs -I{} pip3 install {} -i ${PIP_MIRROR}
 }
 update_pip_pkgs >"$PIP_LOG" 2>&1 &
 
