@@ -25,6 +25,7 @@ PIP_LOG="$LOG_DIR/pip.log"
 PIP_MIRROR="https://pypi.tuna.tsinghua.edu.cn/simple"
 
 update_pip_pkgs() {
+	export PIP_BREAK_SYSTEM_PACKAGES=1
 	pip install pipdeptree -i ${PIP_MIRROR}
 	# uninstall packages not in pip.pkg
 	pipdeptree --json-tree | jq ".[] | .package_name" |

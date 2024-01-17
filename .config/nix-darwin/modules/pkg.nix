@@ -60,7 +60,7 @@
       "pgweb"
       "postgresql@14"
       "protobuf"
-      "python3"
+      "python@3.12"
       "redis"
       "ripgrep"
       "rsync"
