@@ -29,7 +29,7 @@ update_pip_pkgs() {
 	pip3 install pipdeptree -i ${PIP_MIRROR}
 	# uninstall packages not in pip.pkg
 	pipdeptree --json-tree | jq ".[] | .package_name" |
-		xargs -I{} bash -c "echo 'pip3 wheel ${PIP_PKGS}' | grep -w -q {} || pipdeptree -p {} -fj | jq '.[] | .package.key' | xargs -I{} pip3 uninstall -y {}"
+		xargs -I{} bash -c "echo 'pip wheel ${PIP_PKGS}' | grep -w -q {} || pipdeptree -p {} -fj | jq '.[] | .package.key' | xargs -I{} pip3 uninstall -y {}"
 	# install/update packages
 	echo "${PIP_PKGS}" | xargs -I{} pip3 install {} -i ${PIP_MIRROR}
 }
