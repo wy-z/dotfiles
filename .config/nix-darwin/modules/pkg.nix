@@ -96,6 +96,8 @@
       "chromedriver"
       "microsoft-remote-desktop"
       "discord"
+      "wine-stable"
+      "balenaetcher"
     ];
   };
 
