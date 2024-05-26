@@ -47,6 +47,7 @@ brew "postgresql@14", restart_service: true
 brew "protobuf"
 brew "python@3.11"
 brew "redis", restart_service: true
+brew "ripgrep"
 brew "rsync"
 brew "rustup-init"
 brew "s3cmd"

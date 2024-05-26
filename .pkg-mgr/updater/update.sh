@@ -69,8 +69,7 @@ update_brew_pkgs >"$BREW_LOG" 2>&1 &
 
 NVIM_LOG="$LOG_DIR/nvim.log"
 update_nvim_pkgs() {
-	lvim +LvimUpdate +qall
-	lvim +TSUpdate +sleep 2 +MasonUpdate +qall
+	nvim +AstroUpdate +qall
 }
 update_nvim_pkgs >"$NVIM_LOG" 2>&1 &
 
