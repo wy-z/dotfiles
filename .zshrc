@@ -1,7 +1,5 @@
 # brew
 export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH
-# virtualenvwrapper
-source /opt/homebrew/bin/virtualenvwrapper.sh
 
 #
 # Plugin
@@ -15,7 +13,7 @@ zplug "lib/completion", from:oh-my-zsh
 zplug "lib/key-bindings", from:oh-my-zsh
 zplug "plugins/ssh-agent", from:oh-my-zsh
 zplug "plugins/shell-proxy", from:oh-my-zsh
-zplug "plugins/virtualenvwrapper", from:oh-my-zsh
+zplug "plugins/virtualenv", from:oh-my-zsh
 
 # Fish-like autosuggestions for zsh
 zplug "zsh-users/zsh-autosuggestions"
