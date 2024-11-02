@@ -3,5 +3,4 @@ isort
 neovim-remote
 pipdeptree
 gdtoolkit
-virtualenvwrapper
 protobuf
