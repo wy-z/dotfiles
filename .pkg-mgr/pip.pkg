@@ -4,3 +4,5 @@ neovim-remote
 pipdeptree
 gdtoolkit
 protobuf
+virtualenv
+pre-commit
