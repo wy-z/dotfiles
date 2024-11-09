@@ -2,6 +2,5 @@ tree-sitter-cli
 neovim
 prettier
 typescript
-husky
 wrangler
 aicommits
