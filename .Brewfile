@@ -46,6 +46,7 @@ brew "pgweb"
 brew "pnpm"
 brew "postgresql@14", restart_service: true
 brew "protobuf"
+brew "python-tk@3.12"
 brew "redis", restart_service: true
 brew "ripgrep"
 brew "rsync"
