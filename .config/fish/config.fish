@@ -32,18 +32,18 @@ set -gx GPG_TTY (tty)
 # local bin
 set local_bin ~/.local/bin
 if test -d $local_bin
-    set -x PATH $PATH $local_bin
+    fish_add_path $local_bin
 end
 
 # go
 if type -q go
-    set -x PATH $PATH (go env GOPATH)/bin
+    fish_add_path (go env GOPATH)/bin
 end
 
 # cargo
 set cargo_bin ~/.cargo/bin
 if test -d $cargo_bin
-    set -x PATH $PATH $cargo_bin
+    fish_add_path $cargo_bin
 end
 
 # misc
