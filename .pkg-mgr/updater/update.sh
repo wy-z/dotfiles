@@ -74,15 +74,15 @@ update_nvim_pkgs() {
 update_nvim_pkgs >"$NVIM_LOG" 2>&1 &
 
 #
-# Zsh
+# Fish
 #
 
-ZSH_LOG="$LOG_DIR/zsh.log"
-update_zsh_pkgs() {
+FISH_LOG="$LOG_DIR/fish.log"
+update_fish_pkgs() {
 	http_proxy
-	zsh -c "source $HOME/.zshrc && zplug update"
+	fish -c "fisher update"
 }
-update_zsh_pkgs >"$ZSH_LOG" 2>&1 &
+update_fish_pkgs >"$FISH_LOG" 2>&1 &
 
 # wait
 wait $(jobs -p)
