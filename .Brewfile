@@ -46,7 +46,6 @@ brew "neovim"
 brew "node"
 brew "nomad"
 brew "pgweb"
-brew "postgresql@14"
 brew "protobuf"
 brew "redis", restart_service: :changed
 brew "ripgrep"
