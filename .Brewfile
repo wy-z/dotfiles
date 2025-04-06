@@ -48,7 +48,6 @@ brew "nomad"
 brew "pgweb"
 brew "postgresql@14"
 brew "protobuf"
-brew "python-tk@3.12"
 brew "redis", restart_service: :changed
 brew "ripgrep"
 brew "rsync"
