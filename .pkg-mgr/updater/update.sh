@@ -17,25 +17,6 @@ http_proxy() {
 }
 
 #
-# Pip
-#
-
-PIP_PKGS=$(cat "$PARENT_DIR/pip.pkg")
-PIP_LOG="$LOG_DIR/pip.log"
-PIP_MIRROR="https://pypi.tuna.tsinghua.edu.cn/simple"
-
-update_pip_pkgs() {
-	export PIP_BREAK_SYSTEM_PACKAGES=1
-	pip3 install pipdeptree -i ${PIP_MIRROR}
-	# uninstall packages not in pip.pkg
-	pipdeptree --json-tree | yq ".[] | .package_name" |
-		xargs -I{} bash -c "echo 'pip wheel ${PIP_PKGS}' | grep -w -q {} || pipdeptree -p {} -fj | yq '.[] | .package.key' | xargs -I{} pip3 uninstall -y {}"
-	# install/update packages
-	echo "${PIP_PKGS}" | xargs -I{} pip3 install {} -i ${PIP_MIRROR}
-}
-update_pip_pkgs >"$PIP_LOG" 2>&1 &
-
-#
 # Npm
 #
 
