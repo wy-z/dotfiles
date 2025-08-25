@@ -24,7 +24,7 @@ if status is-login
 end
 
 # atuin
-atuin init fish --disable-up-arrow | source
+atuin init fish | source
 
 # gpg
 set -gx GPG_TTY (tty)
