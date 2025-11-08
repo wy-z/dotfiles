@@ -18,11 +18,6 @@ if type -q starship
     starship init fish | source
 end
 
-# ssh agent
-if status is-login
-    ssh-add
-end
-
 # atuin
 atuin init fish | source
 
