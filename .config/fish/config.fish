@@ -4,6 +4,11 @@ if test -d /opt/homebrew
     fish_add_path /opt/homebrew/bin
 end
 
+# bun
+if type -q bun
+    fish_add_path ~/.bun/bin
+end
+
 # zoxide
 zoxide init fish | source
 alias j=z
