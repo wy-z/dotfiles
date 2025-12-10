@@ -68,6 +68,7 @@ brew "ssh-copy-id"
 brew "starship"
 brew "stylua"
 brew "subversion"
+brew "ta-lib"
 brew "telnet"
 brew "tldr"
 brew "trash-cli", link: true
