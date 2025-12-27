@@ -12,7 +12,7 @@ LOG="$DIR/log"
 mkdir -p "$LOG"
 
 # Update all packages in parallel
-sudo brew upgrade && sudo brew upgrade --greedy --cask >"$LOG/brew.log" 2>&1 &
+brew upgrade --greedy >"$LOG/brew.log" 2>&1 &
 nvim +AstroUpdate +qall >"$LOG/nvim.log" 2>&1 &
 fish -c "fisher update" >"$LOG/fish.log" 2>&1 &
 

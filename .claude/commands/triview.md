@@ -31,4 +31,4 @@ Process:
    - Cross-validation insights (what each reviewer caught that others missed)
    - Final improvement recommendations (prioritized by cross-validation confidence)
 
-**IMPORTANT**: Provide the final synthesis summary in Chinese (Simplified) for better readability and comprehension.
+**IMPORTANT**: Provide the final synthesis summary in the user's native language (inferred from conversation context).
