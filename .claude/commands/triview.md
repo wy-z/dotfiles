@@ -22,7 +22,7 @@ Process:
    - `clink` with `cli_name: "gemini"` and `role: "codereviewer"`
    - `clink` with `cli_name: "codex"` and `role: "codereviewer"`
 
-   Pass the review content (diff or file content) as the prompt context for each clink call.
+   **Note**: Both Gemini CLI and Codex have direct file access capabilities. When reviewing files, pass the file paths to them via `absolute_file_paths` parameter instead of summarizing content in the prompt. This allows them to read and analyze the actual source code directly for more accurate reviews.
 
 4. **Three-way cross-validation synthesis** - Compare and synthesize all THREE perspectives (your own + gemini + codex) to provide:
    - Unanimously agreed strengths (issues confirmed by all three reviewers carry highest confidence)
