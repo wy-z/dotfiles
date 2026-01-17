@@ -2,33 +2,30 @@
 description: "Three-way AI code review (default: git staged changes)"
 ---
 
-Perform a three-way comprehensive code review.
+Three-way code review with cross-validation from multiple AI perspectives.
 
-**Review Target**: $ARGUMENTS
+**Target**: $ARGUMENTS (file path, git ref range like `HEAD~3..HEAD`, or empty for `git diff --cached`)
 
-Process:
-1. Determine the review content:
-   - If `$ARGUMENTS` is provided and non-empty, use it as the review target (could be a file path, git ref range like `HEAD~3..HEAD`, or specific content description)
-   - If `$ARGUMENTS` is empty or not provided, default to git staged changes using `git diff --cached`
+**Process**:
 
-2. YOU (Claude) directly analyze the review content and provide your review covering:
-   - Code quality and best practices
-   - Potential bugs and security issues
-   - Performance considerations
-   - Readability and maintainability
-   - Test coverage recommendations
+1. **Get review content**:
+   - If `$ARGUMENTS` is a file path: read the file
+   - If `$ARGUMENTS` is a git range: run `git diff <range>`
+   - If empty: run `git diff --cached`
 
-3. Use clink to get independent reviews from two other models:
-   - `clink` with `cli_name: "gemini"` and `role: "codereviewer"`
-   - `clink` with `cli_name: "codex"` and `role: "codereviewer"`
+2. **Your review**: Analyze for quality, bugs, security, performance, readability, and test coverage
 
-   **Note**: Both Gemini CLI and Codex have direct file access capabilities. When reviewing files, pass the file paths to them via `absolute_file_paths` parameter instead of summarizing content in the prompt. This allows them to read and analyze the actual source code directly for more accurate reviews.
+3. **External reviews** (run in parallel): Call `mcp__pal__clink` twice:
+   ```
+   clink(cli_name="gemini", role="codereviewer", prompt="Review this code: <content>", absolute_file_paths=[...])
+   clink(cli_name="codex", role="codereviewer", prompt="Review this code: <content>", absolute_file_paths=[...])
+   ```
+   For file targets, pass paths via `absolute_file_paths`. For diff content, include in `prompt`.
 
-4. **Three-way cross-validation synthesis** - Compare and synthesize all THREE perspectives (your own + gemini + codex) to provide:
-   - Unanimously agreed strengths (issues confirmed by all three reviewers carry highest confidence)
-   - Unanimously agreed issues (problems identified by all three are critical to address)
-   - Points of disagreement among the three reviews (highlight where reviewers diverge and analyze why)
-   - Cross-validation insights (what each reviewer caught that others missed)
-   - Final improvement recommendations (prioritized by cross-validation confidence)
+4. **Synthesize all three**: Compare your review + gemini + codex:
+   - Unanimous agreements (highest confidence)
+   - Points of disagreement (analyze why)
+   - Unique insights each reviewer caught
+   - Prioritized recommendations
 
-**IMPORTANT**: Provide the final synthesis summary in the user's native language (inferred from conversation context).
+**Output**: Final synthesis in user's native language.

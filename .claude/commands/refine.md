@@ -2,44 +2,40 @@
 description: "Iterative code refinement (default: git staged changes)"
 ---
 
-Refine code through iterative rounds using the code-simplifier agent.
+Iterative code refinement through the code-simplifier agent. Less is more.
 
-**Core Principles**: Code must be **concise**, **elegant**, and **readable**. Avoid over-engineering, unnecessary abstractions, and verbose patterns. Simplicity is the ultimate sophistication.
-
-**Target**: $ARGUMENTS
+**Target**: $ARGUMENTS (file path, git ref range, or empty for `git diff --cached`)
 
 **Process**:
 
-## Step 1: Determine target
-- If `$ARGUMENTS` provided: use as target (file path, git ref range, or content)
-- If empty: use `git diff --cached` for staged changes
+1. **Get target**:
+   - If `$ARGUMENTS` is a file path: use that file
+   - If `$ARGUMENTS` is a git range: get changed files from `git diff <range> --name-only`
+   - If empty: get staged files from `git diff --cached --name-only`
 
-## Step 2: Execute refinement
-Use the Task tool with `subagent_type: "code-simplifier:code-simplifier"`.
+2. **Execute refinement**: Call Task tool:
+   ```
+   Task(
+     subagent_type="code-simplifier:code-simplifier",
+     prompt="Refine the following files through 3 rounds:
+       Round 1 - Structure & Clarity: eliminate redundancy, improve naming, flatten nested logic
+       Round 2 - Elegance & Idioms: apply idiomatic patterns, remove unnecessary abstractions
+       Round 3 - Final Polish: maximum readability with minimum code
 
-Prompt the agent with:
-- The target code/files to refine
-- Instruction to perform 3 iterative refinement rounds:
-  - Round 1: Structure & Clarity (eliminate redundancy, improve naming, flatten nested logic)
-  - Round 2: Elegance & Idioms (apply idiomatic patterns, remove unnecessary abstractions)
-  - Round 3: Final Polish (maximum readability with minimum code)
-- Request before/after code snippets for each significant change
+       For each significant change, provide before/after code snippets.
 
-## Step 3: Verify logic preservation
-Based on the agent's before/after snippets, YOU must:
-1. Verify each change preserves the original logic
-2. Output a verification table:
+       Files to refine: <list file paths here>"
+   )
+   ```
+   The agent has file access - pass absolute file paths in the prompt.
 
-| Change | Before | After | Logic Preserved? |
-|--------|--------|-------|------------------|
-| (description) | (original code) | (new code) | ✅ or ❌ + reason |
+3. **Verify logic**: Review each before/after snippet from the agent:
+   - ✅ Logic preserved → accept change
+   - ❌ Logic broken → fix before proceeding
 
-3. If any ❌, fix immediately before proceeding
+4. **Present results** (in user's native language):
+   - Key improvements (bullets)
+   - Lines changed statistics
+   - "Logic verified" confirmation
 
-## Step 4: Present results
-Output in user's native language:
-1. Key improvements (bullet points)
-2. Lines changed statistics
-3. Confirmation: "Logic verified"
-
-**Philosophy**: Less is more. Every line should earn its place.
+**Principles**: Concise, elegant, readable. No over-engineering. Every line earns its place.
