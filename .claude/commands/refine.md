@@ -10,30 +10,36 @@ Refine code through iterative rounds using the code-simplifier agent.
 
 **Process**:
 
-1. **Determine target content**:
-   - If `$ARGUMENTS` provided: use as target (file path, git ref range, or content)
-   - If empty: use `git diff --cached` for staged changes
+## Step 1: Determine target
+- If `$ARGUMENTS` provided: use as target (file path, git ref range, or content)
+- If empty: use `git diff --cached` for staged changes
 
-2. **Execute refinement**:
-   Use the Task tool with `subagent_type: "code-simplifier:code-simplifier"` to refine the target code.
+## Step 2: Execute refinement
+Use the Task tool with `subagent_type: "code-simplifier:code-simplifier"`.
 
-   Prompt the agent with:
-   - The target code/files to refine
-   - Instruction to perform 3 iterative refinement rounds:
-     - Round 1: Structure & Clarity (ruthlessly eliminate redundancy, improve naming, flatten nested logic)
-     - Round 2: Elegance & Idioms (apply idiomatic patterns, remove unnecessary abstractions, consolidate logic into minimal elegant form)
-     - Round 3: Final Polish (ensure maximum readability with minimum code, validate logic preserved, remove any remaining verbosity)
-   - Request a summary of key improvements
+Prompt the agent with:
+- The target code/files to refine
+- Instruction to perform 3 iterative refinement rounds:
+  - Round 1: Structure & Clarity (eliminate redundancy, improve naming, flatten nested logic)
+  - Round 2: Elegance & Idioms (apply idiomatic patterns, remove unnecessary abstractions)
+  - Round 3: Final Polish (maximum readability with minimum code)
+- Request before/after code snippets for each significant change
 
-3. **Verify logic preservation**:
-   After the agent completes, YOU (not the agent) must carefully review the refined code:
-   - Compare original and refined code side-by-side
-   - Verify all branches, conditions, and edge cases are preserved
-   - Ensure return values, error handling, and side effects remain identical
-   - Check that no functionality was accidentally removed or altered
-   - If any logic discrepancy is found, fix it immediately before presenting to user
+## Step 3: Verify logic preservation
+Based on the agent's before/after snippets, YOU must:
+1. Verify each change preserves the original logic
+2. Output a verification table:
 
-4. **Present results**:
-   Share the agent's refined code and summary with the user in their native language. Include a brief confirmation that logic has been verified.
+| Change | Before | After | Logic Preserved? |
+|--------|--------|-------|------------------|
+| (description) | (original code) | (new code) | ✅ or ❌ + reason |
 
-**Philosophy**: Less is more. Every line should earn its place. Prefer 3 clear lines over 1 clever line, but prefer 1 clear line over 3 redundant lines.
+3. If any ❌, fix immediately before proceeding
+
+## Step 4: Present results
+Output in user's native language:
+1. Key improvements (bullet points)
+2. Lines changed statistics
+3. Confirmation: "Logic verified"
+
+**Philosophy**: Less is more. Every line should earn its place.
