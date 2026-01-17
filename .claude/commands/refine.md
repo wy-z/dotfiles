@@ -22,6 +22,8 @@ Iterative code refinement through the code-simplifier agent. Less is more.
        Round 2 - Elegance & Idioms: apply idiomatic patterns, remove unnecessary abstractions
        Round 3 - Final Polish: maximum readability with minimum code
 
+       IMPORTANT: Do NOT over-split code. Keep cohesive logic together. Extracting every small piece into separate functions hurts readability. Only split when there's clear reuse or the function is genuinely too long.
+
        For each significant change, provide before/after code snippets.
 
        Files to refine: <list file paths here>"
