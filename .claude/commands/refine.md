@@ -2,42 +2,39 @@
 description: "Iterative code refinement (default: git staged changes)"
 ---
 
-Iterative code refinement through the code-simplifier agent. Less is more.
+Refine code through 3 iterative rounds for cleaner, more elegant, and readable code.
 
-**Target**: $ARGUMENTS (file path, git ref range, or empty for `git diff --cached`)
+**Target**: $ARGUMENTS
+
+**Constraints**:
+- Preserve original logic exactly - no functional changes
+- Focus on: simplicity, elegance, readability
+- Each round builds on previous improvements
 
 **Process**:
 
-1. **Get target**:
-   - If `$ARGUMENTS` is a file path: use that file
-   - If `$ARGUMENTS` is a git range: get changed files from `git diff <range> --name-only`
-   - If empty: get staged files from `git diff --cached --name-only`
+1. **Determine target content**:
+   - If `$ARGUMENTS` provided: use as target (file path, git ref range, or content)
+   - If empty: use `git diff --cached` for staged changes
 
-2. **Execute refinement**: Call Task tool:
-   ```
-   Task(
-     subagent_type="code-simplifier:code-simplifier",
-     prompt="Refine the following files through 3 rounds:
-       Round 1 - Structure & Clarity: eliminate redundancy, improve naming, flatten nested logic
-       Round 2 - Elegance & Idioms: apply idiomatic patterns, remove unnecessary abstractions
-       Round 3 - Final Polish: maximum readability with minimum code
+2. **Round 1 - Structure & Clarity**:
+   - Simplify nested logic and reduce complexity
+   - Improve naming for variables, functions, parameters
+   - Remove redundant code and dead paths
+   - Output the refined code
 
-       IMPORTANT: Do NOT over-split code. Keep cohesive logic together. Extracting every small piece into separate functions hurts readability. Only split when there's clear reuse or the function is genuinely too long.
+3. **Round 2 - Elegance & Idioms**:
+   - Apply language-specific idioms and best practices
+   - Leverage modern syntax and patterns
+   - Consolidate repetitive patterns
+   - Output the further refined code
 
-       For each significant change, provide before/after code snippets.
+4. **Round 3 - Final Polish**:
+   - Final readability and style improvements
+   - Validate all changes preserve original logic
+   - Output the final refined code
 
-       Files to refine: <list file paths here>"
-   )
-   ```
-   The agent has file access - pass absolute file paths in the prompt.
-
-3. **Verify logic**: Review each before/after snippet from the agent:
-   - ✅ Logic preserved → accept change
-   - ❌ Logic broken → fix before proceeding
-
-4. **Present results** (in user's native language):
-   - Key improvements (bullets)
-   - Lines changed statistics
-   - "Logic verified" confirmation
-
-**Principles**: Concise, elegant, readable. No over-engineering. Every line earns its place.
+5. **Summary** (in user's native language, inferred from conversation):
+   - List key improvements from each round
+   - Before/after comparison highlights
+   - Confidence that logic is preserved
