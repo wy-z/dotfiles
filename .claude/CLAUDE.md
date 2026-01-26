@@ -22,3 +22,8 @@ Follow **Clean Code** principles: concise, elegant, readable code.
 - **DON'T** abstract prematurely - 3 similar lines > unnecessary abstraction
 - **DON'T** refactor surrounding code when fixing bugs
 - **DON'T** add comments, docstrings, or type hints to unchanged code
+
+## MCP Tools
+
+### Context7
+Prefer using Context7 MCP when needing library/API documentation, code generation, setup or configuration steps - without requiring explicit user request.
