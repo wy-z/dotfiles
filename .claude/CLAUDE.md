@@ -15,6 +15,16 @@ Follow **Clean Code** principles: concise, elegant, readable code.
 - Always raise or log errors explicitly
 - Never return empty/default values to hide failures
 
+### KISS - Keep It Simple, Stupid (DO)
+- Choose the simplest solution that works
+- Avoid unnecessary complexity and over-engineering
+- If a solution feels complicated, step back and simplify
+
+### DRY - Don't Repeat Yourself (DO)
+- Extract repeated logic into reusable functions/modules
+- Single source of truth for data and configuration
+- But don't over-abstract - duplication is better than wrong abstraction
+
 ### YAGNI - You Aren't Gonna Need It (DON'T)
 - **DON'T** anticipate or expand requirements without user consent
 - **DON'T** make "while I'm here" improvements
