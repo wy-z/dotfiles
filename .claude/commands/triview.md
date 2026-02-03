@@ -15,12 +15,10 @@ Three-way code review with cross-validation from multiple AI perspectives.
 
 2. **Your review**: Analyze for quality, bugs, security, performance, readability, and test coverage
 
-3. **External reviews** (run in parallel): Call `mcp__pal__clink` twice:
-   ```
-   clink(cli_name="gemini", role="codereviewer", prompt="Review this code: <content>", absolute_file_paths=[...])
-   clink(cli_name="codex", role="codereviewer", prompt="Review this code: <content>", absolute_file_paths=[...])
-   ```
-   For file targets, pass paths via `absolute_file_paths`. For diff content, include in `prompt`.
+3. **External reviews** (run in parallel using Task agents):
+   - Launch two Task agents simultaneously
+   - Each agent calls clink, analyzes the response, and returns only key findings
+   - Agent prompt: "Call clink(cli_name='<gemini|codex>', role='codereviewer', prompt='Review this code: <content>', absolute_file_paths=[...]). Summarize response as: (1) bugs/errors, (2) security issues, (3) top 3 other suggestions. Be concise."
 
 4. **Synthesize all three**: Compare your review + gemini + codex:
    - Unanimous agreements (highest confidence)
@@ -28,4 +26,13 @@ Three-way code review with cross-validation from multiple AI perspectives.
    - Unique insights each reviewer caught
    - Prioritized recommendations
 
-**Output**: Final synthesis in user's native language.
+5. **YAGNI filter**: Apply strict filtering to all recommendations:
+   - **Keep**: Bug fixes, security issues, correctness problems
+   - **Keep**: Issues that will cause immediate problems
+   - **Discard**: "While you're here" improvements
+   - **Discard**: Speculative refactoring or premature abstractions
+   - **Discard**: Style suggestions unrelated to the change's intent
+   - **Discard**: Future-proofing or extensibility suggestions
+   - **Question**: If a suggestion requires justification beyond "best practice", discard it
+
+**Output**: Final filtered synthesis in user's native language. Only actionable, necessary items remain.
