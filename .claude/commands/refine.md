@@ -2,7 +2,7 @@
 description: "Iterative code refinement (default: git staged changes)"
 ---
 
-Refine code through 3 iterative rounds for cleaner, more elegant, and readable code.
+Refine code through iterative rounds for cleaner, more elegant, and readable code.
 
 **Target**: $ARGUMENTS
 
@@ -17,7 +17,9 @@ Refine code through 3 iterative rounds for cleaner, more elegant, and readable c
    - If `$ARGUMENTS` provided: use as target (file path, git ref range, or content)
    - If empty: use `git diff --cached` for staged changes
 
-2. **Round 1 - Structure & Clarity**:
+2. **Round 0 - Simplify**: Run `/simplify` on the target to eliminate redundancy, reuse opportunities, and YAGNI violations first.
+
+3. **Round 1 - Structure & Clarity**:
    - Simplify nested logic and reduce complexity
    - Improve naming for variables, functions, parameters
    - Remove redundant code and dead paths
