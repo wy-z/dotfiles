@@ -33,7 +33,10 @@ Follow **Clean Code** principles: concise, elegant, readable code.
 - **DON'T** refactor surrounding code when fixing bugs
 - **DON'T** add comments, docstrings, or type hints to unchanged code
 
-## MCP Tools
+## Tools
 
-### Context7
+### context7
 Prefer using Context7 MCP when needing library/API documentation, code generation, setup or configuration steps - without requiring explicit user request.
+
+### ccc (Semantic Code Search)
+For exploratory/conceptual code searches where the exact symbol name is unknown, prefer `ccc search` over multiple rounds of Grep/Glob. It returns ranked results with file paths and line ranges, reducing search iterations and unnecessary file reads. Use Grep/Glob for precise symbol lookups.

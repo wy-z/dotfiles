@@ -51,3 +51,7 @@ alias g=git
 set -x CLICOLOR 1
 set -x LANG en_US.UTF-8
 set -x EDITOR nvim
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
