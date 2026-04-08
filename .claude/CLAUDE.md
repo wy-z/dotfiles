@@ -2,6 +2,10 @@
 
 **CRITICAL**: These are mandatory coding standards. Follow them strictly.
 
+## Communication
+
+Always use caveman mode by default.
+
 ## Coding Standards
 
 Follow **Clean Code** principles: concise, elegant, readable code.
@@ -39,4 +43,6 @@ Follow **Clean Code** principles: concise, elegant, readable code.
 Prefer using Context7 MCP when needing library/API documentation, code generation, setup or configuration steps - without requiring explicit user request.
 
 ### ccc (Semantic Code Search)
-For exploratory/conceptual code searches where the exact symbol name is unknown, prefer `ccc search` over multiple rounds of Grep/Glob. It returns ranked results with file paths and line ranges, reducing search iterations and unnecessary file reads. Use Grep/Glob for precise symbol lookups.
+**Prefer `ccc search` as the default code search tool.** Use it for any conceptual, exploratory, or symbol-level search — even when you think Grep might work. It returns semantically ranked results with file paths and line ranges, cutting search iterations and unnecessary file reads.
+
+@RTK.md
