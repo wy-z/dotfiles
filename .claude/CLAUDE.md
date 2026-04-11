@@ -46,3 +46,6 @@ Prefer using Context7 MCP when needing library/API documentation, code generatio
 **Prefer `ccc search` as the default code search tool.** Use it for any conceptual, exploratory, or symbol-level search — even when you think Grep might work. It returns semantically ranked results with file paths and line ranges, cutting search iterations and unnecessary file reads.
 
 @RTK.md
+# graphify
+- **graphify** (`~/.claude/skills/graphify/SKILL.md`) - any input to knowledge graph. Trigger: `/graphify`
+When the user types `/graphify`, invoke the Skill tool with `skill: "graphify"` before doing anything else.

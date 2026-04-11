@@ -35,7 +35,6 @@ export LANG=en_US.UTF-8
 export EDITOR=nvim
 alias g=git
 
-
 # starship
 eval "$(starship init zsh)"
 
@@ -68,7 +67,6 @@ export PATH=~/.local/bin:$PATH
 if [ -f ~/.zshrc-pers ]; then
     source ~/.zshrc-pers
 fi
-
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/nomad nomad
