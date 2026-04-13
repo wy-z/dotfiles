@@ -18,6 +18,11 @@ if type -q direnv
     direnv hook fish | source
 end
 
+# mise
+if type -q mise
+    mise activate fish | source
+end
+
 # starship
 if type -q starship
     starship init fish | source

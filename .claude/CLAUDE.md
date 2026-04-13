@@ -45,7 +45,19 @@ Prefer using Context7 MCP when needing library/API documentation, code generatio
 ### ccc (Semantic Code Search)
 **Prefer `ccc search` as the default code search tool.** Use it for any conceptual, exploratory, or symbol-level search — even when you think Grep might work. It returns semantically ranked results with file paths and line ranges, cutting search iterations and unnecessary file reads.
 
+### code-review-graph
+Use code-review-graph MCP tools for structural code exploration (callers, dependents, impact analysis). **Before calling any graph tool, run `code-review-graph update --skip-flows` to refresh the graph.**
+
+Key tools:
+
+| Tool | Use when |
+|------|----------|
+| `semantic_search_nodes` | Find functions/classes by name or keyword. Prefer over Grep for exploration |
+| `query_graph` | Trace relationships: `callers_of`, `callees_of`, `imports_of`, `importers_of`, `tests_for`, `inheritors_of`, `file_summary` |
+| `detect_changes` | Code review — risk-scored guidance from git diff |
+| `get_impact_radius` | Blast radius of file changes (BFS traversal) |
+| `get_affected_flows` | Which execution paths are impacted by changed files |
+| `get_architecture_overview` | High-level codebase structure via community analysis |
+| `refactor_tool` | `mode=dead_code` detection, `mode=rename` preview |
+
 @RTK.md
-# graphify
-- **graphify** (`~/.claude/skills/graphify/SKILL.md`) - any input to knowledge graph. Trigger: `/graphify`
-When the user types `/graphify`, invoke the Skill tool with `skill: "graphify"` before doing anything else.
