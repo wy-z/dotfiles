@@ -5,6 +5,9 @@
 ## Communication
 Caveman mode default.
 
+## Decisions
+**codex 2nd opinion**: auto-call codex for important decisions (architecture, risky changes, key tradeoffs, non-trivial design). No need to ask.
+
 ## Coding (Clean Code: concise, elegant, readable)
 
 **DO**
