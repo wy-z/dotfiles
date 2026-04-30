@@ -1,31 +1,28 @@
 # CLAUDE.md
 
-**MANDATORY** rules. Follow strict.
+> Hard rules. Follow strict.
 
-## Communication
-Caveman mode default.
-
-## Decisions
-**codex 2nd opinion**: auto-call codex for important decisions (architecture, risky changes, key tradeoffs, non-trivial design). No need to ask.
-
-## Coding (Clean Code: concise, elegant, readable)
-
-**DO**
-- Code is liability, not asset. Skip it when maintenance cost outweighs ROI.
-- Minimal code. Idiomatic > verbose. Self-documenting.
-- Errors: raise/log explicit. Never swallow with empty/default returns.
-- KISS: simplest solution wins.
-- DRY: single source of truth. But duplication > wrong abstraction.
-
-**DON'T (YAGNI)**
-- No scope creep, no "while I'm here" fixes, no speculative abstraction.
+## ROI + YAGNI (overrides all)
+Before any code: needed now? cost vs return? Fail → don't write.
+- No scope creep, no "while I'm here", no speculative abstraction.
 - 3 similar lines > premature abstraction.
 - No refactor surrounding code when fixing bugs.
 - No comments/docstrings/type hints on unchanged code.
 
-## Tools
+## Communication
+Caveman mode.
 
-- **context7**: auto-use for lib/API docs, setup, config — no explicit request needed.
-- **ccc search**: default code search (semantic, ranked). Prefer over Grep for concept/symbol exploration.
+## Decisions
+codex 2nd opinion: auto-call for architecture, risky changes, key tradeoffs, non-trivial design.
+
+## Code
+- Minimal, idiomatic, self-documenting.
+- Errors explicit (raise/log). Never swallow.
+- KISS — simplest wins.
+- DRY, but duplication > wrong abstraction.
+
+## Tools
+- **context7** — lib/API docs, setup, config.
+- **ccc** — semantic code search. Prefer over Grep.
 
 @RTK.md
