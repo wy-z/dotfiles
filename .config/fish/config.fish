@@ -13,6 +13,11 @@ end
 zoxide init fish | source
 alias j=z
 
+# fzf
+if type -q fzf
+    fzf --fish | source
+end
+
 # direnv
 if type -q direnv
     direnv hook fish | source
@@ -29,7 +34,9 @@ if type -q starship
 end
 
 # atuin
-atuin init fish | source
+if type -q atuin
+    atuin init fish | source
+end
 
 # gpg
 set -gx GPG_TTY (tty)

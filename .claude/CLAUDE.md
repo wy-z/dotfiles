@@ -27,6 +27,5 @@ Caveman mode default.
 
 - **context7**: auto-use for lib/API docs, setup, config — no explicit request needed.
 - **ccc search**: default code search (semantic, ranked). Prefer over Grep for concept/symbol exploration.
-- **code-review-graph**: structural exploration (callers, deps, impact). Run `code-review-graph update --skip-flows` before any graph tool.
 
 @RTK.md
