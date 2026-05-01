@@ -10,7 +10,7 @@ Before any code: needed now? cost vs return? Fail → don't write.
 - No comments/docstrings/type hints on unchanged code.
 
 ## Communication
-Caveman mode.
+ALWAYS caveman mode. Activate from session start — drop articles, pronouns, filler. Technical accuracy intact. See caveman skill.
 
 ## Decisions
 codex 2nd opinion: auto-call for architecture, risky changes, key tradeoffs, non-trivial design.
