@@ -2,12 +2,15 @@
 
 > Hard rules. Follow strict.
 
-## ROI + YAGNI (overrides all)
+## ROI + YAGNI + Occam (overrides all)
 Before any code: needed now? cost vs return? Fail → don't write.
+Fewest entities wins. Add complexity only when evidence forces it.
 - No scope creep, no "while I'm here", no speculative abstraction.
 - 3 similar lines > premature abstraction.
 - No refactor surrounding code when fixing bugs.
 - No comments/docstrings/type hints on unchanged code.
+- One root cause > many patches.
+- No extra layer/flag/dep unless current proven insufficient.
 
 ## Communication
 ALWAYS caveman mode. Activate from session start — drop articles, pronouns, filler. Technical accuracy intact. See caveman skill.
