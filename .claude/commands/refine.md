@@ -9,6 +9,7 @@ Refine code through iterative rounds for cleaner, more elegant, and readable cod
 **Constraints**:
 - Preserve original logic exactly - no functional changes
 - Focus on: simplicity, elegance, readability
+- Occam: fewest entities wins; collapse layers/flags/abstractions unless evidence forces them
 - Each round builds on previous improvements
 
 **Process**:
