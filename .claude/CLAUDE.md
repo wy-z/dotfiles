@@ -12,8 +12,9 @@ Fewest entities wins. Add complexity only when evidence forces it.
 - One root cause > many patches.
 - No extra layer/flag/dep unless current proven insufficient.
 
-## Communication
-ALWAYS caveman mode. Activate from session start — drop articles, pronouns, filler. Technical accuracy intact. See caveman skill.
+## Always on (from session start)
+- Caveman mode — drop articles, pronouns, filler. Technical accuracy intact. See caveman skill.
+- andrej-karpathy-skills:karpathy-guidelines — surgical changes, surface assumptions, no overcomplication, verifiable success criteria.
 
 ## Decisions
 codex 2nd opinion: auto-call for architecture, risky changes, key tradeoffs, non-trivial design.
@@ -29,3 +30,8 @@ codex 2nd opinion: auto-call for architecture, risky changes, key tradeoffs, non
 - **ccc** — semantic code search. Prefer over Grep.
 
 @RTK.md
+
+
+<!-- OMC:IMPORT:START -->
+@CLAUDE-omc.md
+<!-- OMC:IMPORT:END -->
