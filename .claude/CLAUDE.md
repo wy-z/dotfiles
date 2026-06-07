@@ -31,7 +31,6 @@ codex 2nd opinion: auto-call for architecture, risky changes, key tradeoffs, non
 
 @RTK.md
 
-
 <!-- OMC:IMPORT:START -->
 @CLAUDE-omc.md
 <!-- OMC:IMPORT:END -->

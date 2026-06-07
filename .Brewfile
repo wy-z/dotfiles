@@ -1,3 +1,4 @@
+tap "domt4/autoupdate"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
