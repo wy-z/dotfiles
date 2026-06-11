@@ -25,6 +25,10 @@ codex 2nd opinion: auto-call for architecture, risky changes, key tradeoffs, non
 - KISS — simplest wins.
 - DRY, but duplication > wrong abstraction.
 
+## Workflow
+- Before commit: run /refine once.
+- Before commit: codex hunt P0/P1 bugs, at least once.
+
 ## Tools
 - **context7** — lib/API docs, setup, config.
 - **ccc** — semantic code search. Prefer over Grep.
