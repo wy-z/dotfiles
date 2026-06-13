@@ -12,6 +12,13 @@ Fewest entities wins. Add complexity only when evidence forces it.
 - One root cause > many patches.
 - No extra layer/flag/dep unless current proven insufficient.
 
+## Software design (APoSD)
+- Complexity = dependencies + obscurity. Before any change: which did I add?
+- Deep modules — narrow interface, deep implementation. Shallow modules are debt.
+- Push complexity down — the module absorbs it so callers stay simple.
+- Design errors out of existence > scattering try/catch.
+- Comment the why and the non-obvious, never the what.
+
 ## Always on (from session start)
 - Caveman mode — drop articles, pronouns, filler. Technical accuracy intact. See caveman skill.
 - andrej-karpathy-skills:karpathy-guidelines — surgical changes, surface assumptions, no overcomplication, verifiable success criteria.
@@ -27,7 +34,7 @@ codex 2nd opinion: auto-call for architecture, risky changes, key tradeoffs, non
 
 ## Workflow
 - Before commit: run /refine once.
-- Before commit: loop review together with codex (Claude + codex both review) until zero P0/P1 bugs. Review follows ROI + YAGNI + Occam.
+- Before commit: loop review together with codex (Claude + codex both review) until zero P0/P1 bugs. Review follows ROI + YAGNI + Occam + APoSD.
 
 ## Tools
 - **context7** — lib/API docs, setup, config.
