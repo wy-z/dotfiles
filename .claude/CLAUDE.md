@@ -27,7 +27,7 @@ codex 2nd opinion: auto-call for architecture, risky changes, key tradeoffs, non
 
 ## Workflow
 - Before commit: run /refine once.
-- Before commit: loop review together with codex (Claude + codex both review) until zero P0/P1 bugs.
+- Before commit: loop review together with codex (Claude + codex both review) until zero P0/P1 bugs. Review follows ROI + YAGNI + Occam.
 
 ## Tools
 - **context7** — lib/API docs, setup, config.
