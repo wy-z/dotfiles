@@ -19,9 +19,14 @@ Fewest entities wins. Add complexity only when evidence forces it.
 - Design errors out of existence > scattering try/catch.
 - Comment the why and the non-obvious, never the what.
 
+## OOP (readability tool, not goal)
+- Object when state + behavior bundle clarifies caller; class earns place only as deep module.
+- Function + plain data first — no class/inheritance/pattern till that proves insufficient.
+- Composition > inheritance. Behavior with data, not anemic object + procedural sprawl.
+- OOP serves readability; readability never bends to OOP.
+
 ## Always on (from session start)
 - Caveman mode — drop articles, pronouns, filler. Technical accuracy intact. See caveman skill.
-- andrej-karpathy-skills:karpathy-guidelines — surgical changes, surface assumptions, no overcomplication, verifiable success criteria.
 
 ## Decisions
 codex 2nd opinion: auto-call for architecture, risky changes, key tradeoffs, non-trivial design.
