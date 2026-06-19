@@ -19,11 +19,18 @@ Fewest entities wins. Add complexity only when evidence forces it.
 - Design errors out of existence > scattering try/catch.
 - Comment the why and the non-obvious, never the what.
 
-## OOP (readability tool, not goal)
-- Object when state + behavior bundle clarifies caller; class earns place only as deep module.
-- Function + plain data first — no class/inheritance/pattern till that proves insufficient.
-- Composition > inheritance. Behavior with data, not anemic object + procedural sprawl.
-- OOP serves readability; readability never bends to OOP.
+## Modularity (build-block / compose)
+- Extract when boundary stable — bias toward pulling it out as a module. Premature only if boundary still shifting (that's the YAGNI line).
+- "Independent enough" = high cohesion + low coupling + single responsibility. Else leave inline.
+- Extracted unit = reusable primitive (deep module), grown bottom-up so others compose on it.
+
+## OOP (lean in, dodge traps)
+- Prefer objects first — bundle state + behavior, callers stay simple.
+- More OOP = more encapsulation, not more classes. Each object earns place as deep module: narrow interface, deep impl.
+- Chase wins: hide internals, enforce invariants (constructor sets, methods keep), polymorphism for swappable impl, model domain as objects, invalid states unrepresentable.
+- Dodge traps: classitis (shallow classes), deep inheritance, anemic bag + procedural sprawl, getter/setter ceremony, god object, speculative pattern/interface.
+- Composition > inheritance — inherit only true is-a. Mutate via invariant-holding methods, never leak mutable internals.
+- OOP serves readability — plain function wins when reads clearer.
 
 ## Always on (from session start)
 - Caveman mode — drop articles, pronouns, filler. Technical accuracy intact. See caveman skill.
@@ -40,6 +47,7 @@ codex 2nd opinion: auto-call for architecture, risky changes, key tradeoffs, non
 ## Workflow
 - Before commit: run /refine once.
 - Before commit: loop review together with codex (Claude + codex both review) until zero P0/P1 bugs. Review follows ROI + YAGNI + Occam + APoSD.
+- After both: run /refine again on-demand if diff large.
 
 ## Tools
 - **context7** — lib/API docs, setup, config.
