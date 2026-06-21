@@ -1,0 +1,206 @@
+{
+  "version": 3,
+  "skills": {
+    "ccc": {
+      "source": "cocoindex-io/cocoindex-code",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cocoindex-io/cocoindex-code.git",
+      "skillPath": "skills/ccc/SKILL.md",
+      "skillFolderHash": "73284474fe78bcc766ec69bc2fda91dbef0d6ca2",
+      "installedAt": "2026-03-18T10:15:43.939Z",
+      "updatedAt": "2026-06-08T14:50:50.633Z"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "3013fdeb8a11b10b1eb795ec3ae8bfca38f7c26d",
+      "installedAt": "2026-03-18T10:15:57.659Z",
+      "updatedAt": "2026-03-18T10:15:57.659Z"
+    },
+    "caveman-compress": {
+      "source": "JuliusBrussee/caveman",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
+      "skillPath": "caveman-compress/SKILL.md",
+      "skillFolderHash": "eb81d1ed6ddeb1767f56817572c232e66bdc1167",
+      "installedAt": "2026-04-08T03:50:49.360Z",
+      "updatedAt": "2026-05-01T06:00:15.432Z"
+    },
+    "context7-cli": {
+      "source": "upstash/context7",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/upstash/context7.git",
+      "skillPath": "skills/context7-cli/SKILL.md",
+      "skillFolderHash": "325b0274b730df3a01ed7c0fe0f5b0c2bd74715d",
+      "installedAt": "2026-05-01T05:39:40.762Z",
+      "updatedAt": "2026-05-26T05:56:36.268Z"
+    },
+    "ccpm": {
+      "source": "automazeio/ccpm",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/automazeio/ccpm.git",
+      "skillPath": "skill/ccpm/SKILL.md",
+      "skillFolderHash": "e9a333ba7c17e2ba601d90eaed29235cd189db6d",
+      "installedAt": "2026-06-08T14:50:12.382Z",
+      "updatedAt": "2026-06-08T14:50:12.382Z"
+    },
+    "caveman": {
+      "source": "juliusbrussee/caveman",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/juliusbrussee/caveman.git",
+      "skillPath": "skills/caveman/SKILL.md",
+      "skillFolderHash": "a22aa2a0a64d7d4b7b59bbddbdb865fedfb40d9c",
+      "installedAt": "2026-06-08T15:17:03.414Z",
+      "updatedAt": "2026-06-21T09:00:04.740Z"
+    },
+    "clerk": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/core/clerk/SKILL.md",
+      "skillFolderHash": "2e01e02d0e30daf04c87bca27690fe984aaa5c41",
+      "pluginName": "core",
+      "installedAt": "2026-06-12T07:43:48.651Z",
+      "updatedAt": "2026-06-12T07:43:48.651Z"
+    },
+    "clerk-backend-api": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/core/clerk-backend-api/SKILL.md",
+      "skillFolderHash": "b8b0c877fd6f0e91864c60e2d510ca9b04e34af9",
+      "pluginName": "core",
+      "installedAt": "2026-06-12T07:43:48.653Z",
+      "updatedAt": "2026-06-12T07:43:48.653Z"
+    },
+    "clerk-cli": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/core/clerk-cli/SKILL.md",
+      "skillFolderHash": "f24cab991b97604d45c0069ef908c86460294310",
+      "pluginName": "core",
+      "installedAt": "2026-06-12T07:43:48.653Z",
+      "updatedAt": "2026-06-12T07:43:48.653Z"
+    },
+    "clerk-custom-ui": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/core/clerk-custom-ui/SKILL.md",
+      "skillFolderHash": "7e07aad9e9f4283098de90813ff1b025c18db040",
+      "pluginName": "core",
+      "installedAt": "2026-06-12T07:43:48.654Z",
+      "updatedAt": "2026-06-12T07:43:48.654Z"
+    },
+    "clerk-setup": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/core/clerk-setup/SKILL.md",
+      "skillFolderHash": "c57c085f7f280832fb7c3970c1c7fbb64b990eb0",
+      "pluginName": "core",
+      "installedAt": "2026-06-12T07:43:48.654Z",
+      "updatedAt": "2026-06-12T07:43:48.654Z"
+    },
+    "clerk-expo": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/mobile/clerk-expo/SKILL.md",
+      "skillFolderHash": "c35680787e975b13c3c40b7b4fd6169649011f03",
+      "installedAt": "2026-06-12T07:43:48.655Z",
+      "updatedAt": "2026-06-12T07:43:48.655Z"
+    },
+    "clerk-billing": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/features/clerk-billing/SKILL.md",
+      "skillFolderHash": "4bfdc1bf6b3c54cc5c7270499fda4fc7418c9b83",
+      "pluginName": "features",
+      "installedAt": "2026-06-12T07:43:48.655Z",
+      "updatedAt": "2026-06-12T07:43:48.655Z"
+    },
+    "clerk-orgs": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/features/clerk-orgs/SKILL.md",
+      "skillFolderHash": "3ed514c6f4f2ae1781be607fb9b848a159b85027",
+      "pluginName": "features",
+      "installedAt": "2026-06-12T07:43:48.656Z",
+      "updatedAt": "2026-06-12T07:43:48.656Z"
+    },
+    "clerk-testing": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/features/clerk-testing/SKILL.md",
+      "skillFolderHash": "4cfcca153cd4b51512d8b11d92b99b47b073ce55",
+      "pluginName": "features",
+      "installedAt": "2026-06-12T07:43:48.656Z",
+      "updatedAt": "2026-06-12T07:43:48.656Z"
+    },
+    "clerk-webhooks": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/features/clerk-webhooks/SKILL.md",
+      "skillFolderHash": "6fca395c8f8b10bcca4433e1e6e8871caa878596",
+      "pluginName": "features",
+      "installedAt": "2026-06-12T07:43:48.657Z",
+      "updatedAt": "2026-06-12T07:43:48.657Z"
+    },
+    "clerk-android": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/mobile/clerk-android/SKILL.md",
+      "skillFolderHash": "814e0c4ca915370d20a7ec3eba78bb7521bd61f0",
+      "pluginName": "mobile",
+      "installedAt": "2026-06-12T07:43:48.657Z",
+      "updatedAt": "2026-06-12T07:43:48.657Z"
+    },
+    "clerk-swift": {
+      "source": "clerk/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/clerk/skills.git",
+      "skillPath": "skills/mobile/clerk-swift/SKILL.md",
+      "skillFolderHash": "dcc86bf7a2b3c6e53d09e2b9d6732e5c0b9e4871",
+      "pluginName": "mobile",
+      "installedAt": "2026-06-12T07:43:48.658Z",
+      "updatedAt": "2026-06-12T07:43:48.658Z"
+    },
+    "karpathy-guidelines": {
+      "source": "multica-ai/andrej-karpathy-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/multica-ai/andrej-karpathy-skills.git",
+      "skillPath": "skills/karpathy-guidelines/SKILL.md",
+      "skillFolderHash": "e119339197d600aa39a24fd7a95c946800c9c949",
+      "pluginName": "andrej-karpathy-skills",
+      "installedAt": "2026-06-21T11:00:35.650Z",
+      "updatedAt": "2026-06-21T11:00:35.650Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "antigravity",
+    "antigravity-cli",
+    "cline",
+    "codex",
+    "cursor",
+    "deepagents",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-code-cli",
+    "opencode",
+    "warp",
+    "zed"
+  ]
+}

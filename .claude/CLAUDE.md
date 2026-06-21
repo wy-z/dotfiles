@@ -32,9 +32,6 @@ Fewest entities wins. Add complexity only when evidence forces it.
 - Composition > inheritance — inherit only true is-a. Mutate via invariant-holding methods, never leak mutable internals.
 - OOP serves readability — plain function wins when reads clearer.
 
-## Always on (from session start)
-- Caveman mode — drop articles, pronouns, filler. Technical accuracy intact. See caveman skill.
-
 ## Decisions
 codex 2nd opinion: auto-call for architecture, risky changes, key tradeoffs, non-trivial design.
 
@@ -52,6 +49,9 @@ codex 2nd opinion: auto-call for architecture, risky changes, key tradeoffs, non
 ## Tools
 - **context7** — lib/API docs, setup, config.
 - **ccc** — semantic code search. Prefer over Grep.
+
+@skills/karpathy-guidelines/SKILL.md
+@skills/caveman/SKILL.md
 
 @RTK.md
 
