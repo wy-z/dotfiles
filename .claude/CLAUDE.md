@@ -51,7 +51,6 @@ codex 2nd opinion: auto-call for architecture, risky changes, key tradeoffs, non
 - **ccc** — semantic code search. Prefer over Grep.
 
 @skills/karpathy-guidelines/SKILL.md
-@skills/caveman/SKILL.md
 
 @RTK.md
 
