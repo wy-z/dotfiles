@@ -180,6 +180,8 @@ brew "wget"
 brew "yarn"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # Fast file synchronization and network forwarding for remote development
@@ -211,6 +213,8 @@ cask "godot"
 cask "orbstack"
 # Mesh VPN based on WireGuard
 cask "tailscale-app"
+# Menu bar manager
+cask "thaw"
 # Open-source code editor
 cask "visual-studio-code"
 # Voice to text app
@@ -219,6 +223,7 @@ vscode "bierner.markdown-mermaid"
 vscode "ms-ceintl.vscode-language-pack-zh-hans"
 vscode "vscodevim.vim"
 vscode "wy-z.vscode-vim-mode"
+uv "bspec"
 uv "cocoindex-code[full]"
 uv "llm"
 npm "clerk"
