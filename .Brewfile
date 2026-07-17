@@ -1,9 +1,5 @@
 tap "domt4/autoupdate", trusted: true
 tap "facebook/fb"
-tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
-tap "homebrew/services"
 tap "macos-fuse-t/cask"
 tap "mutagen-io/mutagen"
 tap "oven-sh/bun"
@@ -184,6 +180,8 @@ brew "yq"
 brew "yt-dlp"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
+# A Powerful Command Line for automating iOS Simulators
+brew "facebook/fb/idb-companion", trusted: true
 # Fast file synchronization and network forwarding for remote development
 brew "mutagen-io/mutagen/mutagen", trusted: true
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
@@ -204,11 +202,13 @@ cask "codex"
 cask "discord"
 cask "font-hack-nerd-font"
 # LibFUSE implementation that doesn't use kernel extensions
-cask "macos-fuse-t/cask/fuse-t"
+cask "macos-fuse-t/cask/fuse-t", trusted: true
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 # 2D and 3D game engine
 cask "godot"
+# Extensible coding agent for the terminal
+cask "grok-build"
 # Replacement for Docker Desktop
 cask "orbstack"
 # Mesh VPN based on WireGuard
@@ -223,8 +223,8 @@ vscode "bierner.markdown-mermaid"
 vscode "ms-ceintl.vscode-language-pack-zh-hans"
 vscode "vscodevim.vim"
 vscode "wy-z.vscode-vim-mode"
-uv "bspec"
 uv "cocoindex-code[full]"
+uv "fb-idb"
 uv "llm"
 npm "clerk"
 npm "ctx7"
