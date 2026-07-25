@@ -11,6 +11,7 @@ Fewest entities wins. Add complexity only when evidence forces it.
 - No comments/docstrings/type hints on unchanged code.
 - One root cause > many patches.
 - No extra layer/flag/dep unless current proven insufficient.
+- Own design/impl: reject low ROI + big complexity. Lower complexity always better — when forced, take least.
 
 ## Software design (APoSD)
 - Complexity = dependencies + obscurity. Before any change: which did I add?
