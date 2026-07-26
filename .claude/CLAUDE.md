@@ -39,6 +39,7 @@ Subtraction first — ask "can this go?" before "is this right?".
 - Before commit, first pass: subtraction over the whole diff per ## Review — every added entity must pass "needed now?", delete what fails. Report deletion list + net LOC delta before any other pass.
 - Before commit: run /refine once.
 - Before commit: loop review together with codex (Claude + codex both review) until zero P0/P1 bugs. Review code logic and business logic together — both, same pass. Follows ## Design + ## Review.
+- Consecutive multi-commit run: codex slow — skip per-commit codex review, run codex review once after last commit. Claude still reviews every commit.
 - After both: run /refine again on-demand if diff large.
 
 ## Tools
