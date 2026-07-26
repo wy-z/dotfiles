@@ -34,7 +34,7 @@ Subtraction first — ask "can this go?" before "is this right?".
 
 ## Workflow
 - Task → verifiable goal first: "add validation" → write tests for invalid input, make pass. "fix bug" → failing test that repros, make pass. Multi-step → state plan, one verify check per step.
-- State assumptions explicit. Uncertain → ask, never pick silently. Multiple readings → present them. Simpler path exists → say so, push back. Confused → stop, name what is unclear.
+- State assumptions explicit. Readings differ enough to change the work → ask; else write the assumption down and proceed. Simpler path exists → say so, push back. Confused → stop, name what is unclear.
 - codex 2nd opinion: auto-call for architecture, risky changes, key tradeoffs, non-trivial design.
 - Before commit, first pass: subtraction over the whole diff per ## Review — every added entity must pass "needed now?", delete what fails. Report deletion list + net LOC delta before any other pass.
 - Before commit: run /refine once.
@@ -44,4 +44,4 @@ Subtraction first — ask "can this go?" before "is this right?".
 ## Tools
 - **context7** — lib/API docs, setup, config.
 - **ccc** — semantic code search. Prefer over Grep.
-- **rtk** — hook auto-rewrites Bash cmds, transparent. Call by hand only for: `rtk proxy <cmd>` (raw unfiltered output — rtk's filter can hide entries), `rtk gain [--history]`, `rtk discover`.
+- **rtk** — call by hand only for: `rtk proxy <cmd>` (raw unfiltered output — rtk's filter can hide entries), `rtk gain [--history]`, `rtk discover`.
