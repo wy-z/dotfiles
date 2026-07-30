@@ -34,6 +34,7 @@ Subtraction first — ask "can this go?" before "is this right?".
 
 ## Workflow
 - Task → verifiable goal first: "add validation" → write tests for invalid input, make pass. "fix bug" → failing test that repros, make pass. Multi-step → state plan, one verify check per step.
+- Bug fixed → two sweeps: 1) same mistake elsewhere — search the pattern, not the line; 2) can API/type/structure make it unrepresentable? Report both; fix beyond the bug only when agreed.
 - State assumptions explicit. Readings differ enough to change the work → ask; else write the assumption down and proceed. Simpler path exists → say so, push back. Confused → stop, name what is unclear.
 - codex 2nd opinion: auto-call for architecture, risky changes, key tradeoffs, non-trivial design.
 - Before commit, first pass: subtraction over the whole diff per ## Review — every added entity must pass "needed now?", delete what fails. Report deletion list + net LOC delta before any other pass.
