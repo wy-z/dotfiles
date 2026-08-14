@@ -13,6 +13,7 @@
 - One root cause > many patches.
 - No dep/layer/flag to replace code that already works — only when current proven insufficient.
 - Reject low ROI + big complexity. Lower complexity always better — when forced, take least.
+- Implementation too complex → decompose first (separation of concerns), not push through. Split passes only if "independent enough" below.
 - Deep modules — narrow interface, deep implementation. Shallow modules are debt.
 - Push complexity down — the module absorbs it so callers stay simple.
 - Extract when boundary stable; premature only while boundary still shifting. Extracted unit = reusable primitive others compose on.
@@ -37,11 +38,11 @@ Subtraction first — ask "can this go?" before "is this right?".
 - Bug fixed → two sweeps: 1) same mistake elsewhere — search the pattern, not the line; 2) can API/type/structure make it unrepresentable? Report both; fix beyond the bug only when agreed.
 - State assumptions explicit. Readings differ enough to change the work → ask; else write the assumption down and proceed. Simpler path exists → say so, push back. Confused → stop, name what is unclear.
 - codex 2nd opinion: auto-call for architecture, risky changes, key tradeoffs, non-trivial design.
-- Before commit, first pass: subtraction over the whole diff per ## Review — every added entity must pass "needed now?", delete what fails. Report deletion list + net LOC delta before any other pass.
-- Before commit: run /refine once.
-- Before commit: loop review together with codex (Claude + codex both review) until zero P0/P1 bugs. Review code logic and business logic together — both, same pass. Follows ## Design + ## Review.
-- Consecutive multi-commit run: codex slow — skip per-commit codex review, run codex review once after last commit. Claude still reviews every commit.
-- After both: run /refine again on-demand if diff large.
+- Before commit, in order: 1) subtraction pass over whole diff per ## Review — report deletion list + net LOC delta first; 2) /refine once; 3) review loop with codex (both review, code logic + business logic, per ## Design + ## Review) until zero P0/P1. Diff still large after loop → /refine again.
+- Trivial diff (typo/docs/one-liner) → skip /refine + codex loop, Claude self-review only.
+- Consecutive multi-commit run: codex slow — skip per-commit codex review, run once after last commit. Claude still reviews every commit.
+- Before PR: tidy history — squash fixup/WIP/noise commits (any non-interactive means); each commit = one coherent change, history reads as logical steps.
+- Commits: conventional (feat/fix/docs/refactor/...), imperative subject.
 
 ## Tools
 - **context7** — lib/API docs, setup, config.
