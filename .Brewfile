@@ -76,6 +76,8 @@ brew "gost"
 brew "harper"
 # Package compiler and linker metadata toolkit
 brew "pkgconf"
+# Agent multiplexer that lives in your terminal
+brew "herdr"
 # Improved top (interactive process viewer)
 brew "htop"
 # Tools and libraries to manipulate images in select formats
@@ -110,6 +112,8 @@ brew "neovide"
 brew "neovim-remote"
 # Distributed, Highly Available, Datacenter-Aware Scheduler
 brew "nomad"
+# Development kit for the Java programming language
+brew "openjdk@17"
 # Multithreaded PNG optimizer written in Rust
 brew "oxipng"
 # Web-based PostgreSQL database browser
@@ -190,6 +194,8 @@ brew "oven-sh/bun/bun", trusted: true
 brew "runpod/runpodctl/runpodctl", trusted: true
 # Command-line interface for 1Password
 cask "1password-cli"
+# Command-line tools for building and debugging Android apps
+cask "android-commandlinetools"
 # Android SDK component
 cask "android-platform-tools"
 # Tool to flash OS images to SD cards & USB drives
@@ -203,6 +209,8 @@ cask "discord"
 cask "font-hack-nerd-font"
 # LibFUSE implementation that doesn't use kernel extensions
 cask "macos-fuse-t/cask/fuse-t", trusted: true
+# Set of tools to manage resources and applications hosted on Google Cloud
+cask "gcloud-cli"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 # 2D and 3D game engine
