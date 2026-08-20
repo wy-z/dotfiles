@@ -184,7 +184,7 @@ brew "yq"
 brew "yt-dlp"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
-# A Powerful Command Line for automating iOS Simulators
+# Companion server for automating iOS Simulators
 brew "facebook/fb/idb-companion", trusted: true
 # Fast file synchronization and network forwarding for remote development
 brew "mutagen-io/mutagen/mutagen", trusted: true
@@ -219,6 +219,8 @@ cask "godot"
 cask "grok-build"
 # Replacement for Docker Desktop
 cask "orbstack"
+# Open source virtual/remote desktop application
+cask "rustdesk"
 # Mesh VPN based on WireGuard
 cask "tailscale-app"
 # Menu bar manager
@@ -234,7 +236,6 @@ vscode "wy-z.vscode-vim-mode"
 uv "cocoindex-code[full]"
 uv "fb-idb"
 uv "llm"
-uv "serena-agent"
 npm "clerk"
 npm "ctx7"
 npm "oh-my-claude-sisyphus"

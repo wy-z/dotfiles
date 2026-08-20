@@ -20,6 +20,7 @@
 - "Independent enough" = high cohesion + low coupling + single responsibility. Else leave inline.
 - Prefer objects first — bundle state + behavior. More OOP = more encapsulation, not more classes.
 - Hide internals, enforce invariants (constructor sets, methods keep), make invalid states unrepresentable, polymorphism for swappable impl.
+- Logic that reads a model's data lives on the model — derived fields, formatting, comparison; validation once at birth (constructor/parse), downstream trusts the type. Same model-logic repeated at use sites = feature envy, move it in — don't add another copy.
 - Plain function wins when it reads clearer.
 - Errors explicit (raise/log), never swallowed. Design errors out of existence > scattering try/catch.
 - Comment the why and the non-obvious, never the what.
@@ -46,5 +47,4 @@ Subtraction first — ask "can this go?" before "is this right?".
 
 ## Tools
 - **context7** — lib/API docs, setup, config.
-- **ccc** — semantic code search. Prefer over Grep.
 - **rtk** — call by hand only for: `rtk proxy <cmd>` (raw unfiltered output — rtk's filter can hide entries), `rtk gain [--history]`, `rtk discover`.
