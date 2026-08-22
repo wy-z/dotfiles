@@ -1,9 +1,10 @@
 tap "domt4/autoupdate", trusted: true
-tap "facebook/fb"
+tap "facebook/fb", trusted: true
+tap "hashicorp/tap", trusted: true
 tap "macos-fuse-t/cask"
 tap "mutagen-io/mutagen"
-tap "oven-sh/bun"
-tap "runpod/runpodctl"
+tap "oven-sh/bun", trusted: true
+tap "runpod/runpodctl", trusted: true
 # Simple, modern, secure file encryption
 brew "age"
 # Display directories as trees (with optional color/HTML output)
@@ -22,8 +23,6 @@ brew "bind"
 brew "caddy"
 # Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript
 brew "clang-format"
-# Wrap Gemini CLI, Codex, Claude Code, Qwen Code as an API service
-brew "cliproxyapi"
 # Statistics utility to count lines of code
 brew "cloc"
 # Open-source, cross-platform JavaScript runtime environment
@@ -36,8 +35,6 @@ brew "cloudflared"
 brew "cmake"
 # Dependency manager for Cocoa projects
 brew "cocoapods"
-# Tool for service discovery, monitoring and configuration
-brew "consul"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Diff that understands syntax
@@ -58,8 +55,6 @@ brew "fisher"
 brew "fzf"
 # Independent set of GDScript tools - parser, linter, formatter, and more
 brew "gdtoolkit"
-# Interact with Google Gemini AI models from the command-line
-brew "gemini-cli"
 # GitHub command-line tool
 brew "gh"
 # Git extension for versioning large files
@@ -110,8 +105,6 @@ brew "neovim"
 brew "neovide"
 # Control nvim processes using `nvr` command-line tool
 brew "neovim-remote"
-# Distributed, Highly Available, Datacenter-Aware Scheduler
-brew "nomad"
 # Development kit for the Java programming language
 brew "openjdk@17"
 # Multithreaded PNG optimizer written in Rust
@@ -124,6 +117,8 @@ brew "postgresql@18", restart_service: :changed, link: true
 brew "prettier"
 # Protocol buffers (Google's data interchange format)
 brew "protobuf"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
 # Persistent key-value database, with built-in net interface
 brew "redis", restart_service: :changed
 # Pack repository contents into a single AI-friendly file
@@ -158,8 +153,6 @@ brew "subversion"
 brew "ta-lib"
 # User interface to the TELNET protocol
 brew "telnet"
-# Simplified and community-driven man pages
-brew "tldr"
 # Command-line interface to the freedesktop.org trashcan
 brew "trash-cli", link: true
 # Language for application scale JavaScript development
@@ -186,6 +179,10 @@ brew "yt-dlp"
 brew "zoxide"
 # Companion server for automating iOS Simulators
 brew "facebook/fb/idb-companion", trusted: true
+# Consul
+brew "hashicorp/tap/consul"
+# Nomad
+brew "hashicorp/tap/nomad"
 # Fast file synchronization and network forwarding for remote development
 brew "mutagen-io/mutagen/mutagen", trusted: true
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
@@ -202,8 +199,12 @@ cask "android-platform-tools"
 cask "balenaetcher"
 # 3D creation suite
 cask "blender"
+# Terminal-based AI coding assistant
+cask "claude-code"
 # OpenAI's coding agent that runs in your terminal
 cask "codex"
+# Tool for service discovery, monitoring and configuration
+cask "consul"
 # Voice and text chat software
 cask "discord"
 cask "font-hack-nerd-font"
@@ -227,15 +228,13 @@ cask "tailscale-app"
 cask "thaw"
 # Open-source code editor
 cask "visual-studio-code"
-# Voice to text app
-cask "voiceink"
 vscode "bierner.markdown-mermaid"
 vscode "ms-ceintl.vscode-language-pack-zh-hans"
 vscode "vscodevim.vim"
 vscode "wy-z.vscode-vim-mode"
 uv "cocoindex-code[full]"
 uv "fb-idb"
-uv "llm"
+uv "llm", with: ["httpx"]
 npm "clerk"
 npm "ctx7"
 npm "oh-my-claude-sisyphus"
