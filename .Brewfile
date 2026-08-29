@@ -1,8 +1,8 @@
 tap "domt4/autoupdate", trusted: true
 tap "facebook/fb", trusted: true
 tap "hashicorp/tap", trusted: true
-tap "macos-fuse-t/cask"
-tap "mutagen-io/mutagen"
+tap "macos-fuse-t/cask", trusted: true
+tap "mutagen-io/mutagen", trusted: true
 tap "oven-sh/bun", trusted: true
 tap "runpod/runpodctl", trusted: true
 # Simple, modern, secure file encryption
