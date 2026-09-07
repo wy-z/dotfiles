@@ -10,23 +10,14 @@
       "installedAt": "2026-08-20T10:05:09.581Z",
       "updatedAt": "2026-08-20T10:05:09.581Z"
     },
-    "caveman": {
-      "source": "juliusbrussee/caveman",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/juliusbrussee/caveman.git",
-      "skillPath": "skills/caveman/SKILL.md",
-      "skillFolderHash": "bdf0c87a2bdd47fc7fe9008c40cc6491ee801b81",
-      "installedAt": "2026-08-20T10:05:15.176Z",
-      "updatedAt": "2026-08-20T10:05:15.176Z"
-    },
     "context7-cli": {
       "source": "upstash/context7",
       "sourceType": "github",
       "sourceUrl": "https://github.com/upstash/context7.git",
       "skillPath": "skills/context7-cli/SKILL.md",
-      "skillFolderHash": "016c025808545e08aa31e7c6aa5464b80ddaaa05",
+      "skillFolderHash": "5eab610de8c871f2b7fe252c5edf13daa2b07fb6",
       "installedAt": "2026-08-20T10:06:20.596Z",
-      "updatedAt": "2026-08-20T10:06:20.596Z"
+      "updatedAt": "2026-09-04T11:46:31.131Z"
     }
   },
   "dismissed": {

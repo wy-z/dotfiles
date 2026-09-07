@@ -39,10 +39,12 @@ Subtraction first — ask "can this go?" before "is this right?".
 - Bug fixed → two sweeps: 1) same mistake elsewhere — search the pattern, not the line; 2) can API/type/structure make it unrepresentable? Report both; fix beyond the bug only when agreed.
 - State assumptions explicit. Readings differ enough to change the work → ask; else write the assumption down and proceed. Simpler path exists → say so, push back. Confused → stop, name what is unclear.
 - codex 2nd opinion: auto-call for architecture, risky changes, key tradeoffs, non-trivial design.
+- Fable quota scarce → main thread orchestrates, subagents (Opus via CLAUDE_CODE_SUBAGENT_MODEL) execute. Delegate anything self-contained: codebase search/explore, spec'd implementation step, test writing, review pass, doc fetch. Main thread keeps design decisions, integration, final judgment. Fork only when subagent needs full context.
 - Before commit, in order: 1) subtraction pass over whole diff per ## Review — report deletion list + net LOC delta first; 2) /refine once; 3) review loop with codex (both review, code logic + business logic, per ## Design + ## Review) until zero P0/P1. Diff still large after loop → /refine again.
 - Trivial diff (typo/docs/one-liner) → skip /refine + codex loop, Claude self-review only.
 - Consecutive multi-commit run: codex slow — skip per-commit codex review, run once after last commit. Claude still reviews every commit.
 - Before PR: tidy history — squash fixup/WIP/noise commits (any non-interactive means); each commit = one coherent change, history reads as logical steps.
+- Docs into the repo → English by default; reply language unaffected.
 - Commits: conventional (feat/fix/docs/refactor/...), imperative subject.
 
 ## Tools

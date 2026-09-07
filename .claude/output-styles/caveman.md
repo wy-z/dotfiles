@@ -1,1 +1,0 @@
-/Users/weiyang/.agents/skills/caveman/SKILL.md
