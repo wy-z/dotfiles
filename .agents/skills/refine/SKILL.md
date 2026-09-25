@@ -25,7 +25,12 @@ Refine code through iterative rounds for cleaner, more elegant, and readable cod
    - Apply only structural refinements both reviewers agree on — logic stays identical
    - Output the restructured code
 
-3. **Round 2 - Simplify**: Run `/simplify` on the target to eliminate redundancy, reuse opportunities, and YAGNI violations first.
+3. **Round 2 - Simplify** (in Claude Code `/simplify` is this round): review the target from four angles and fix what you find:
+   - Reuse: code that re-implements a helper the codebase already has
+   - Simplification: redundant or derivable state, copy-paste with slight variation, deep nesting, dead code
+   - Efficiency: repeated work or I/O, independent operations run sequentially
+   - Altitude: a symptom patched where the underlying mechanism should change
+   - Output the simplified code
 
 4. **Round 3 - Structure & Clarity**:
    - Simplify nested logic and reduce complexity

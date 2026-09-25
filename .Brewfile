@@ -5,20 +5,18 @@ tap "macos-fuse-t/cask", trusted: true
 tap "mutagen-io/mutagen", trusted: true
 tap "oven-sh/bun", trusted: true
 tap "runpod/runpodctl", trusted: true
+tap "superbrothers/opener"
+tap "xdevplatform/tap"
 # Simple, modern, secure file encryption
 brew "age"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
-# Code searching, linting, rewriting
-brew "ast-grep"
 # Improved shell history for zsh, bash, fish and nushell
 brew "atuin"
 # Linter and formatter to improve copywriting, correct spaces, words between CJK
 brew "autocorrect"
-# Implementation of the DNS protocols
-brew "bind"
 # Powerful, enterprise-ready, open source web server with automatic HTTPS
 brew "caddy"
 # Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript
@@ -33,8 +31,6 @@ brew "cloudflare-wrangler"
 brew "cloudflared"
 # Cross-platform make
 brew "cmake"
-# Dependency manager for Cocoa projects
-brew "cocoapods"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Diff that understands syntax
@@ -51,6 +47,8 @@ brew "ffmpeg"
 brew "fish"
 # Plugin manager for the Fish shell
 brew "fisher"
+# Command-line tools for fly.io services
+brew "flyctl"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # Independent set of GDScript tools - parser, linter, formatter, and more
@@ -89,12 +87,12 @@ brew "kubernetes-cli"
 brew "lefthook"
 # Library to communicate with iOS devices natively
 brew "libimobiledevice"
+# Linux virtual machines
+brew "lima"
 # Package manager for the Lua programming language
 brew "luarocks"
 # Keep your Mac's application settings in sync
 brew "mackup"
-# High performance static file server
-brew "miniserve"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
 # Deep clean and optimize your Mac
@@ -127,8 +125,6 @@ brew "repomix"
 brew "ripgrep"
 # Utility that provides fast incremental file transfer
 brew "rsync"
-# CLI proxy to minimize LLM token consumption
-brew "rtk"
 # Rust toolchain installer
 brew "rustup"
 # Command-line tool for the Amazon S3 service
@@ -147,8 +143,6 @@ brew "ssh-copy-id"
 brew "starship"
 # Opinionated Lua code formatter
 brew "stylua"
-# Version control system designed to be a better CVS
-brew "subversion"
 # Tools for market analysis
 brew "ta-lib"
 # User interface to the TELNET protocol
@@ -180,7 +174,7 @@ brew "zoxide"
 # Companion server for automating iOS Simulators
 brew "facebook/fb/idb-companion", trusted: true
 # Consul
-brew "hashicorp/tap/consul"
+brew "hashicorp/tap/consul", link: false
 # Nomad
 brew "hashicorp/tap/nomad"
 # Fast file synchronization and network forwarding for remote development
@@ -189,6 +183,8 @@ brew "mutagen-io/mutagen/mutagen", trusted: true
 brew "oven-sh/bun/bun", trusted: true
 # runpodctl is a CLI tool to manage your GPU pods on RunPod.
 brew "runpod/runpodctl/runpodctl", trusted: true
+# Open URL from the remote
+brew "superbrothers/opener/opener", trusted: true
 # Command-line interface for 1Password
 cask "1password-cli"
 # Command-line tools for building and debugging Android apps
@@ -228,13 +224,20 @@ cask "tailscale-app"
 cask "thaw"
 # Open-source code editor
 cask "visual-studio-code"
+# Auth-enabled curl-like CLI for the X API
+cask "xdevplatform/tap/xurl", trusted: true
 vscode "bierner.markdown-mermaid"
 vscode "ms-ceintl.vscode-language-pack-zh-hans"
+vscode "ms-vscode-remote.remote-ssh"
+vscode "ms-vscode-remote.remote-ssh-edit"
+vscode "ms-vscode.remote-explorer"
 vscode "vscodevim.vim"
 vscode "wy-z.vscode-vim-mode"
 uv "cocoindex-code[full]"
+uv "docling"
 uv "fb-idb"
 uv "llm", with: ["httpx"]
 npm "clerk"
 npm "ctx7"
+npm "eas-cli"
 npm "oh-my-claude-sisyphus"

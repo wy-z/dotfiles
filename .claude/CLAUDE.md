@@ -4,6 +4,7 @@
 
 ## Design
 **ROI + YAGNI + Occam + least ownership — overrides every rule below.** Code is liability, not asset: less you own → smaller error surface, lower upkeep. Before any code: needed now? cost vs return? Fail → don't write. Fewest entities wins; add complexity only when evidence forces it.
+**MVP first, then iterate on feedback.** Ship the smallest version that works end-to-end, put it in front of real use, let feedback — not speculation — pick the next increment. Never build the full vision up front.
 **Prefer live open source over writing it yourself.** The trade is "code I maintain" → "code I don't control": worth it when the problem is not your business's problem and the project is genuinely evolving — else the dep is just new complexity.
 **Complexity = dependencies + obscurity.** Before any change: which did I add?
 
@@ -38,6 +39,7 @@ Subtraction first — ask "can this go?" before "is this right?".
 - Task → verifiable goal first: "add validation" → write tests for invalid input, make pass. "fix bug" → failing test that repros, make pass. Multi-step → state plan, one verify check per step.
 - Bug fixed → two sweeps: 1) same mistake elsewhere — search the pattern, not the line; 2) can API/type/structure make it unrepresentable? Report both; fix beyond the bug only when agreed.
 - State assumptions explicit. Readings differ enough to change the work → ask; else write the assumption down and proceed. Simpler path exists → say so, push back. Confused → stop, name what is unclear.
+- Decision needed from user → plain language, no jargon: what the choice is, each option's cost/benefit in one line, my pick and why.
 - codex 2nd opinion: auto-call for architecture, risky changes, key tradeoffs, non-trivial design.
 - Fable quota scarce → main thread orchestrates, subagents (Opus via CLAUDE_CODE_SUBAGENT_MODEL) execute. Delegate anything self-contained: codebase search/explore, spec'd implementation step, test writing, review pass, doc fetch. Main thread keeps design decisions, integration, final judgment. Fork only when subagent needs full context.
 - Before commit, in order: 1) subtraction pass over whole diff per ## Review — report deletion list + net LOC delta first; 2) /refine once; 3) review loop with codex (both review, code logic + business logic, per ## Design + ## Review) until zero P0/P1. Diff still large after loop → /refine again.
