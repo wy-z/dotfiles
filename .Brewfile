@@ -1,11 +1,12 @@
+tap "can1357/tap"
 tap "domt4/autoupdate", trusted: true
 tap "facebook/fb", trusted: true
 tap "hashicorp/tap", trusted: true
 tap "macos-fuse-t/cask", trusted: true
 tap "mutagen-io/mutagen", trusted: true
 tap "oven-sh/bun", trusted: true
+tap "redpanda-data/tap"
 tap "runpod/runpodctl", trusted: true
-tap "superbrothers/opener"
 tap "xdevplatform/tap"
 # Simple, modern, secure file encryption
 brew "age"
@@ -31,6 +32,8 @@ brew "cloudflare-wrangler"
 brew "cloudflared"
 # Cross-platform make
 brew "cmake"
+# Dependency manager for Cocoa projects
+brew "cocoapods"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Diff that understands syntax
@@ -39,6 +42,8 @@ brew "difftastic"
 brew "direnv"
 # Functional metaprogramming aware language built on Erlang VM
 brew "elixir"
+# Easiest way to build and release mobile apps
+brew "fastlane"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # Play, record, convert, and stream select audio and video codecs
@@ -87,8 +92,6 @@ brew "kubernetes-cli"
 brew "lefthook"
 # Library to communicate with iOS devices natively
 brew "libimobiledevice"
-# Linux virtual machines
-brew "lima"
 # Package manager for the Lua programming language
 brew "luarocks"
 # Keep your Mac's application settings in sync
@@ -97,6 +100,10 @@ brew "mackup"
 brew "mise"
 # Deep clean and optimize your Mac
 brew "mole"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
+# Media player based on MPlayer and mplayer2
+brew "mpv"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # No Nonsense Neovim Client in Rust
@@ -167,24 +174,24 @@ brew "wget"
 brew "yarn"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
-# Feature-rich command-line audio/video downloader
-brew "yt-dlp"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
+# Coding agent with the IDE wired in
+brew "can1357/tap/omp", trusted: true
 # Companion server for automating iOS Simulators
 brew "facebook/fb/idb-companion", trusted: true
 # Consul
-brew "hashicorp/tap/consul", link: false
+brew "hashicorp/tap/consul", trusted: true
 # Nomad
-brew "hashicorp/tap/nomad"
+brew "hashicorp/tap/nomad", trusted: true
 # Fast file synchronization and network forwarding for remote development
 brew "mutagen-io/mutagen/mutagen", trusted: true
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun", trusted: true
+# Redpanda CLI & toolbox
+brew "redpanda-data/tap/redpanda", trusted: true
 # runpodctl is a CLI tool to manage your GPU pods on RunPod.
 brew "runpod/runpodctl/runpodctl", trusted: true
-# Open URL from the remote
-brew "superbrothers/opener/opener", trusted: true
 # Command-line interface for 1Password
 cask "1password-cli"
 # Command-line tools for building and debugging Android apps
@@ -195,8 +202,6 @@ cask "android-platform-tools"
 cask "balenaetcher"
 # 3D creation suite
 cask "blender"
-# Terminal-based AI coding assistant
-cask "claude-code"
 # OpenAI's coding agent that runs in your terminal
 cask "codex"
 # Tool for service discovery, monitoring and configuration
@@ -220,8 +225,6 @@ cask "orbstack"
 cask "rustdesk"
 # Mesh VPN based on WireGuard
 cask "tailscale-app"
-# Menu bar manager
-cask "thaw"
 # Open-source code editor
 cask "visual-studio-code"
 # Auth-enabled curl-like CLI for the X API
@@ -234,9 +237,14 @@ vscode "ms-vscode.remote-explorer"
 vscode "vscodevim.vim"
 vscode "wy-z.vscode-vim-mode"
 uv "cocoindex-code[full]"
+uv "comfy-cli"
+uv "comfy-mcp"
 uv "docling"
 uv "fb-idb"
 uv "llm", with: ["httpx"]
+uv "structdock"
+uv "trafilatura"
+npm "cf"
 npm "clerk"
 npm "ctx7"
 npm "eas-cli"
