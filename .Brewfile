@@ -1,8 +1,8 @@
 tap "can1357/tap"
 tap "domt4/autoupdate", trusted: true
-tap "facebook/fb", trusted: true
 tap "hashicorp/tap", trusted: true
 tap "macos-fuse-t/cask", trusted: true
+tap "meta/fb", "https://github.com/meta/homebrew-fb.git"
 tap "mutagen-io/mutagen", trusted: true
 tap "oven-sh/bun", trusted: true
 tap "redpanda-data/tap"
@@ -36,10 +36,10 @@ brew "cmake"
 brew "cocoapods"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
-# Diff that understands syntax
-brew "difftastic"
 # Load/unload environment variables based on $PWD
 brew "direnv"
+# Static file server
+brew "dufs"
 # Functional metaprogramming aware language built on Erlang VM
 brew "elixir"
 # Easiest way to build and release mobile apps
@@ -122,8 +122,6 @@ brew "postgresql@18", restart_service: :changed, link: true
 brew "prettier"
 # Protocol buffers (Google's data interchange format)
 brew "protobuf"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.13"
 # Persistent key-value database, with built-in net interface
 brew "redis", restart_service: :changed
 # Pack repository contents into a single AI-friendly file
@@ -134,8 +132,6 @@ brew "ripgrep"
 brew "rsync"
 # Rust toolchain installer
 brew "rustup"
-# Command-line tool for the Amazon S3 service
-brew "s3cmd"
 # Substitute for classic 'make' tool with autoconf/automake functionality
 brew "scons"
 # Static analysis and lint tool, for (ba)sh scripts
@@ -166,8 +162,6 @@ brew "uv"
 brew "vips"
 # Execute commands when watched files change
 brew "watchexec"
-# Command-line client for WebSockets
-brew "websocat"
 # Internet file retriever
 brew "wget"
 # JavaScript package manager
@@ -178,8 +172,6 @@ brew "yq"
 brew "zoxide"
 # Coding agent with the IDE wired in
 brew "can1357/tap/omp", trusted: true
-# Companion server for automating iOS Simulators
-brew "facebook/fb/idb-companion", trusted: true
 # Consul
 brew "hashicorp/tap/consul", trusted: true
 # Nomad
@@ -188,8 +180,6 @@ brew "hashicorp/tap/nomad", trusted: true
 brew "mutagen-io/mutagen/mutagen", trusted: true
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun", trusted: true
-# Redpanda CLI & toolbox
-brew "redpanda-data/tap/redpanda", trusted: true
 # runpodctl is a CLI tool to manage your GPU pods on RunPod.
 brew "runpod/runpodctl/runpodctl", trusted: true
 # Command-line interface for 1Password
@@ -236,13 +226,10 @@ vscode "ms-vscode-remote.remote-ssh-edit"
 vscode "ms-vscode.remote-explorer"
 vscode "vscodevim.vim"
 vscode "wy-z.vscode-vim-mode"
-uv "cocoindex-code[full]"
 uv "comfy-cli"
 uv "comfy-mcp"
-uv "docling"
 uv "fb-idb"
-uv "llm", with: ["httpx"]
-uv "structdock"
+uv "structdock", source: "git+https://github.com/StructDock/structdock@fc9b63eed93cc0a1eec07faf9cae180f31368556"
 uv "trafilatura"
 npm "cf"
 npm "clerk"
